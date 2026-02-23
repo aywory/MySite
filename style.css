@@ -410,25 +410,6 @@ body {
     transform: translateX(5px);
 }
 
-/* Адаптация для мобилок */
-@media (max-width: 900px) {
-    .nav-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    .nav-card {
-        width: 100%;
-        max-width: 320px;
-        height: 200px; /* Делаем горизонтальными на мобилках */
-        justify-content: center;
-        padding: 20px;
-    }
-    .card-number {
-        top: 20px;
-        left: 20px;
-    }
-}
 
 /* --- СТИЛИ ДЛЯ ИКОНОК В КАРТОЧКАХ --- */
 
@@ -457,17 +438,62 @@ body {
     filter: drop-shadow(0 0 15px rgba(138, 79, 255, 0.6));
 }
 
-/* Маленький фикс для заголовка на мобилках */
+/* --- ФИКС МОБИЛЬНОЙ ВЕРСИИ ГЛАВНОЙ СТРАНИЦЫ --- */
+
 @media (max-width: 900px) {
-    .card-icon {
-        width: 60px;
-        height: 60px;
-        left: auto;
-        right: 30px; /* На мобилках иконка будет справа */
-        top: 50%;
-        transform: translateY(-50%);
+    .nav-container {
+        flex-direction: column; /* Карточки друг под другом */
+        align-items: center;
+        gap: 15px;
+        padding: 0 20px;
     }
-    .nav-card:hover .card-icon {
-        transform: translateY(-50%) scale(1.1);
+
+    .nav-card {
+        width: 100%;
+        max-width: 400px;
+        height: 120px; /* Делаем их компактными по высоте */
+        flex-direction: row; /* Текст и иконка в одну линию */
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px 30px;
+        border-radius: 20px;
+    }
+
+    /* Номер раздела — делаем его маленьким и аккуратным сверху */
+    .card-number {
+        top: 15px;
+        left: 30px;
+        font-size: 11px;
+        opacity: 0.5;
+    }
+
+    /* Заголовок — теперь он главный и не перекрывается */
+    .card-title {
+        font-size: 24px;
+        margin-top: 10px; /* Смещаем чуть ниже номера */
+        text-align: left;
+    }
+
+    /* Иконка — теперь она живет в правом углу и не мешает тексту */
+    .card-icon {
+        position: absolute;
+        top: 50%;
+        right: 25px;
+        left: auto; /* Отменяем центрирование из десктопной версии */
+        transform: translateY(-50%);
+        width: 55px;
+        height: 55px;
+        opacity: 0.2; /* Делаем её полупрозрачной фоновой деталью */
+    }
+
+    /* На телефонах нет "наведения" мышкой, поэтому сделаем иконку чуть ярче сразу */
+    .nav-card:active {
+        background: rgba(255, 255, 255, 0.1);
+        transform: scale(0.98);
+    }
+    
+    .nav-card:active .card-icon {
+        opacity: 0.6;
+        color: var(--accent-color);
     }
 }
