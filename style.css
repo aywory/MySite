@@ -344,6 +344,7 @@ body {
     text-transform: uppercase;
     /* Текстовый градиент */
     background: linear-gradient(to bottom, #fff 0%, #a0a0a5 100%);
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 30px rgba(138, 79, 255, 0.3));
 }
