@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Название</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="container header-content">
+        <a href="index.html" class="main-logo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg>
+        </a>
+
+        <div class="filters">
+            <div class="search-box">
+                <input type="text" id="search" placeholder="Поиск игр...">
+            </div>
+            
+            <select id="mode-filter">
+                <option value="all">Режим</option>
+                <option value="single">Singleplayer</option>
+                <option value="multi">Multiplayer</option>
+            </select>
+
+            <select id="performance-filter">
+                <option value="all">Производительность</option>
+                <option value="runs">Тянет</option>
+                <option value="noruns">Не тянет</option>
+            </select>
+
+            <select id="radmin-filter">
+                <option value="all">Сеть</option>
+                <option value="radmin">Radmin</option>
+                <option value="noradmin">NoRadmin</option>
+            </select>
+
+            <select id="status-filter">
+                <option value="all">Прохождение</option>
+                <option value="done">Пройдено</option>
+                <option value="undone">Не пройдено</option>
+            </select>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <div class="games-grid" id="games-grid">
+        
+        <div class="game-card">
+            <div class="card-image">
+                <img src="images/Brothers A Tale of Two Sons.jpg" alt="Brothers: A Tale of Two Sons">
+                <span class="badge-year">2013</span>
+            </div>
+            <div class="card-content">
+                <h3>Brothers: A Tale of Two Sons</h3>
+                <p>Эмоциональное приключение-головоломка, где вы одновременно управляете двумя братьями, помогая им спасти отца.</p>
+                <div class="tags">
+                    <span class="tag tag-single">Singleplayer</span>
+                    <span class="tag tag-noradmin">NoRadmin</span>
+                    <span class="tag tag-runs">Тянет</span>
+                    <span class="tag tag-undone">Не пройдено</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="card-image">
+                <img src="images/Blanc.jpg" alt="Blanc"> 
+                <span class="badge-year">2023</span>
+            </div>
+            <div class="card-content">
+                <h3>Blanc</h3>
+                <p>Художественное приключение волчонка и олененка в заснеженном мире. Полностью нарисовано вручную, без слов и текста. </p>
+                <div class="tags">
+                    <span class="tag tag-multi">Multiplayer</span>
+                    <span class="tag tag-single">Singleplayer</span>
+                    <span class="tag tag-radmin">Radmin</span>
+                    <span class="tag tag-runs">Тянет</span>
+                    <span class="tag tag-done">Пройдено</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="card-image">
+                <img src="images/Terraria.jpg" alt="Terraria">
+                <span class="badge-year">2011</span>
+            </div>
+            <div class="card-content">
+                <h3>Terraria</h3>
+                <p>Мир — это ваш холст. Копайте, сражайтесь, исследуйте и стройте в огромной пиксельной песочнице с сотнями боссов и предметов.</p>
+                <div class="tags">
+                    <span class="tag tag-multi">Multiplayer</span>
+                    <span class="tag tag-single">Singleplayer</span>
+                    <span class="tag tag-radmin">Radmin</span>
+                    <span class="tag tag-runs">Тянет</span>
+                    <span class="tag tag-undone">Не пройдено</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-card">
+            <div class="card-image">
+                <img src="images/It_takes_two.jpg" alt="It Takes Two">
+                <span class="badge-year">2021</span>
+            </div>
+            <div class="card-content">
+                <h3>It Takes Two</h3>
+                <p>Безумное приключение, созданное специально для двоих. Помогите Коди и Мэй преодолеть разногласия и вернуться в свои тела в этом шедевре от Юсефа Фареса.</p>
+                <div class="tags">
+                    <span class="tag tag-multi">Multiplayer</span>
+                    <span class="tag tag-single">Singleplayer</span>
+                    <span class="tag tag-radmin">Radmin</span>
+                    <span class="tag tag-noruns">Не тянет</span>
+                    <span class="tag tag-undone">Не пройдено</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<script src="js.js"></script>
+</body>
+</html>

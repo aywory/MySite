@@ -1,0 +1,164 @@
+:root {
+    --bg-color: #050507;
+    --card-bg: #0f0f13;
+    --accent-color: #8a4fff;
+    --text-main: #ffffff;
+    --text-secondary: #b0b0b8;
+    --glass-border: rgba(255, 255, 255, 0.07);
+    
+    /* Цвета тегов */
+    --color-single: #2196f3;
+    --color-multi: #ff9800;
+    --color-green: #00e676; /* Единый зеленый */
+    --color-red: #ff5252;   /* Единый красный */
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    background-image: radial-gradient(circle at 50% 0%, rgba(138, 79, 255, 0.08) 0%, transparent 50%);
+    background-attachment: fixed;
+    color: var(--text-main);
+}
+
+/* ЛОГОТИП */
+.main-logo {
+    display: block; width: 42px; height: 42px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+.main-logo svg {
+    fill: var(--accent-color);
+    filter: drop-shadow(0 0 8px rgba(138, 79, 255, 0.5));
+}
+.main-logo:hover { transform: scale(1.25) rotate(-5deg); }
+.main-logo:hover svg { fill: #ff4bb3; filter: drop-shadow(0 0 12px rgba(255, 75, 179, 0.8)); }
+
+/* ШАПКА И ФИЛЬТРЫ */
+.container { width: 96%; max-width: 1900px; margin: 0 auto; }
+
+.main-header {
+    background: rgba(5, 5, 7, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 15px 0;
+    position: sticky; top: 0; z-index: 1000;
+}
+
+.header-content { display: flex; justify-content: space-between; align-items: center; }
+
+.filters { display: flex; gap: 12px; }
+
+.search-box input, .filters select {
+    background: linear-gradient(180deg, #1a1a24 0%, #16161c 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #b0b0b8;
+    padding: 12px 18px;
+    border-radius: 12px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    appearance: none;
+}
+
+.filters select option {
+    background-color: #16161c;
+    color: #b0b0b8;
+    padding: 10px;
+}
+
+.filters select {
+    padding-right: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238a4fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+}
+
+.search-box input:hover, .filters select:hover {
+    border-color: rgba(138, 79, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+.search-box input:focus, .filters select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(138, 79, 255, 0.1);
+}
+
+.search-box input::placeholder { color: #55555c; }
+
+/* СЕТКА */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; padding: 40px 0;
+}
+
+/* КАРТОЧКА */
+.game-card {
+    background: var(--card-bg);
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    transition: 0.4s ease;
+    cursor: pointer; /* ДОБАВЬ ЭТУ СТРОКУ */
+}
+
+.game-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(138, 79, 255, 0.4);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+.card-image { position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
+.card-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s ease; }
+.game-card:hover .card-image img { transform: scale(1.05); }
+
+.badge-year {
+    position: absolute; top: 15px; right: 15px;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 5px 12px; border-radius: 8px;
+    font-weight: 700; font-size: 12px;
+}
+
+.card-content { padding: 25px; }
+.card-content h3 { margin: 0 0 10px 0; font-size: 22px; font-weight: 700; }
+.card-content p { color: var(--text-secondary); font-size: 15px; margin-bottom: 25px; line-height: 1.5; }
+
+/* --- ТЕГИ (УНИФИЦИРОВАННЫЙ СТИЛЬ) --- */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.tag {
+    font-size: 11px; font-weight: 800;
+    text-transform: uppercase; padding: 6px 14px;
+    border-radius: 8px; letter-spacing: 0.5px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s ease;
+}
+
+/* Зеленая группа: Тянет, Radmin, Пройдено */
+.tag-runs, .tag-radmin, .tag-done { background: rgba(0, 230, 118, 0.1); color: var(--color-green); }
+
+/* Красная группа: Не тянет, NoRadmin, Не пройдено */
+.tag-noruns, .tag-noradmin, .tag-undone { background: rgba(255, 82, 82, 0.1); color: var(--color-red);}
+
+/* Синие и Оранжевые */
+.tag-single { background: rgba(33, 150, 243, 0.1); color: var(--color-single); }
+.tag-multi { background: rgba(255, 152, 0, 0.1); color: var(--color-multi); }
+
+/* ЛОГИКА КЛИКАБЕЛЬНЫХ ТЕГОВ */
+.status-toggle { cursor: pointer; user-select: none; }
+
+.status-toggle:hover { 
+    transform: translateY(-2px); 
+    background: rgba(255, 255, 255, 0.05); 
+    filter: brightness(1.2); 
+}
+
+.status-toggle:active { transform: scale(0.95); }
+
+@media (max-width: 1000px) { .games-grid { grid-template-columns: 1fr; } }
