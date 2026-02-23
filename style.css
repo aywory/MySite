@@ -329,100 +329,38 @@ body {
 
 /* --- ГЛАВНЫЙ ЭКРАН --- */
 
-/* --- НОВОЕ МЕНЮ ИЗ СТЕКЛЯННЫХ КАРТОЧЕК --- */
+/* --- ОБНОВЛЕННОЕ МЕНЮ (ТОЛЬКО ИКОНКИ) --- */
 
 .nav-container {
     display: flex;
     gap: 30px;
     justify-content: center;
-    perspective: 1000px; /* Для 3D эффекта */
+    perspective: 1000px;
 }
 
 .nav-card {
     position: relative;
-    width: 280px;
-    height: 400px;
-    background: rgba(255, 255, 255, 0.03); /* Почти прозрачный фон */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая рамка */
-    border-radius: 24px;
-    text-decoration: none;
+    width: 250px;
+    height: 250px; /* Сделали их квадратными, так как текста нет */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 32px; /* Более округлые углы */
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 40px;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
-    backdrop-filter: blur(15px); /* Эффект размытия стекла */
+    backdrop-filter: blur(15px);
     transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Номер раздела сверху */
-.card-number {
-    position: absolute;
-    top: 30px;
-    left: 40px;
-    font-size: 14px;
-    font-weight: 800;
-    color: var(--accent-color);
-    letter-spacing: 2px;
-    opacity: 0.6;
-}
-
-/* Название раздела */
-.card-title {
-    font-size: 32px;
-    font-weight: 900;
-    color: var(--text-main);
-    letter-spacing: 1px;
-    z-index: 2;
-}
-
-/* Внутреннее свечение, которое появляется при наведении */
-.card-glow {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at 50% 100%, rgba(138, 79, 255, 0.3), transparent 70%);
-    opacity: 0;
-    transition: 0.5s ease;
-}
-
-/* --- ЭФФЕКТЫ ПРИ НАВЕДЕНИИ --- */
-
-.nav-card:hover {
-    transform: translateY(-20px) rotateX(10deg); /* Наклон и подъем */
-    border-color: rgba(138, 79, 255, 0.5);
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.4),
-        0 0 20px rgba(138, 79, 255, 0.2);
-}
-
-.nav-card:hover .card-glow {
-    opacity: 1;
-}
-
-.nav-card:hover .card-title {
-    color: #fff;
-    transform: scale(1.05);
-}
-
-.nav-card:hover .card-number {
-    opacity: 1;
-    transform: translateX(5px);
-}
-
-
-/* --- СТИЛИ ДЛЯ ИКОНОК В КАРТОЧКАХ --- */
-
+/* Сама иконка - ТЕПЕРЬ ОНА ЗАМЕТНАЯ */
 .card-icon {
-    position: absolute;
-    top: 40%; /* Располагаем по центру верхней части */
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 100px;
     height: 100px;
     color: var(--text-main);
-    opacity: 0.1; /* В обычном состоянии почти не видно */
-    transition: all 0.6s ease;
+    opacity: 0.5; /* Увеличили начальную видимость с 0.1 до 0.5 */
+    transition: all 0.5s ease;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
 }
 
 .card-icon svg {
@@ -430,70 +368,56 @@ body {
     height: 100%;
 }
 
-/* ЭФФЕКТ ПРИ НАВЕДЕНИИ */
-.nav-card:hover .card-icon {
-    opacity: 0.8; /* Иконка становится яркой */
-    transform: translate(-50%, -60%) scale(1.2); /* Слегка всплывает вверх */
-    color: var(--accent-color);
-    filter: drop-shadow(0 0 15px rgba(138, 79, 255, 0.6));
+/* Внутреннее свечение (Glow) */
+.card-glow {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(138, 79, 255, 0.2), transparent 70%);
+    opacity: 0;
+    transition: 0.5s ease;
 }
 
-/* --- ФИКС МОБИЛЬНОЙ ВЕРСИИ ГЛАВНОЙ СТРАНИЦЫ --- */
+/* --- ЭФФЕКТЫ ПРИ НАВЕДЕНИИ --- */
 
-@media (max-width: 900px) {
+.nav-card:hover {
+    transform: translateY(-15px) scale(1.05); /* Плавный подъем и увеличение */
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(138, 79, 255, 0.2);
+}
+
+.nav-card:hover .card-icon {
+    opacity: 1; /* Полная яркость */
+    color: var(--accent-color); /* Иконка окрашивается в фиолетовый */
+    filter: drop-shadow(0 0 20px rgba(138, 79, 255, 0.6));
+    transform: scale(1.1);
+}
+
+.nav-card:hover .card-glow {
+    opacity: 1;
+}
+
+/* --- МОБИЛЬНАЯ ВЕРСИЯ (ФИКС) --- */
+
+@media (max-width: 768px) {
     .nav-container {
-        flex-direction: column; /* Карточки друг под другом */
-        align-items: center;
-        gap: 15px;
-        padding: 0 20px;
+        flex-direction: row; /* На мобилках теперь в ряд по 2 или в колонку */
+        flex-wrap: wrap;
+        gap: 20px;
     }
 
     .nav-card {
-        width: 100%;
-        max-width: 400px;
-        height: 120px; /* Делаем их компактными по высоте */
-        flex-direction: row; /* Текст и иконка в одну линию */
-        justify-content: flex-start;
-        align-items: center;
-        padding: 20px 30px;
-        border-radius: 20px;
+        width: 140px; /* Уменьшаем размер для экранов телефонов */
+        height: 140px;
+        border-radius: 24px;
     }
 
-    /* Номер раздела — делаем его маленьким и аккуратным сверху */
-    .card-number {
-        top: 15px;
-        left: 30px;
-        font-size: 11px;
-        opacity: 0.5;
-    }
-
-    /* Заголовок — теперь он главный и не перекрывается */
-    .card-title {
-        font-size: 24px;
-        margin-top: 10px; /* Смещаем чуть ниже номера */
-        text-align: left;
-    }
-
-    /* Иконка — теперь она живет в правом углу и не мешает тексту */
     .card-icon {
-        position: absolute;
-        top: 50%;
-        right: 25px;
-        left: auto; /* Отменяем центрирование из десктопной версии */
-        transform: translateY(-50%);
-        width: 55px;
-        height: 55px;
-        opacity: 0.2; /* Делаем её полупрозрачной фоновой деталью */
-    }
-
-    /* На телефонах нет "наведения" мышкой, поэтому сделаем иконку чуть ярче сразу */
-    .nav-card:active {
-        background: rgba(255, 255, 255, 0.1);
-        transform: scale(0.98);
-    }
-    
-    .nav-card:active .card-icon {
-        opacity: 0.6;
+        width: 60px;
+        height: 60px;
+        opacity: 0.7; /* На мобилках сразу делаем ярче */
         color: var(--accent-color);
     }
 }
