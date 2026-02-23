@@ -162,3 +162,80 @@ body {
 .status-toggle:active { transform: scale(0.95); }
 
 @media (max-width: 1000px) { .games-grid { grid-template-columns: 1fr; } }
+
+
+
+
+
+/* --- АДАПТИВНОСТЬ --- */
+
+/* Скрываем кнопку меню на десктопе */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* ПРАВИЛА ДЛЯ МОБИЛЬНЫХ (экран меньше 768px) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Показываем кнопку только на мобилках */
+    }
+
+    /* Сетка: теперь ровно 1 карточка в ряд */
+    .games-grid {
+        grid-template-columns: 1fr;
+        padding: 20px 0;
+        gap: 20px;
+    }
+
+    /* Фильтры: превращаем в вертикальное меню */
+    .filters {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0f0f13; /* Цвет карточки */
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        border-bottom: 1px solid var(--glass-border);
+        display: none; /* Скрыто по умолчанию */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    /* Показываем меню, когда добавлен класс .active */
+    .filters.active {
+        display: flex;
+    }
+
+    .filters select, .search-box input {
+        width: 100%; /* Растягиваем фильтры на всю ширину */
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .card-content h3 {
+        font-size: 18px;
+    }
+
+    /* Анимация гамбургера при открытии */
+    .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
