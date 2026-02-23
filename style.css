@@ -258,3 +258,204 @@ body {
         transition: 0.3s;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ГЛАВНАЯ СТРАНЦИА*/
+/* --- ГРАДИЕНТНЫЙ И АНИМИРОВАННЫЙ ФОН --- */
+
+.home-body {
+    background-color: #030305;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(138, 79, 255, 0.05), transparent),
+        linear-gradient(to bottom, #030305, #08080a);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Оболочка для эффектов (чтобы не мешали кликам) */
+.bg-effects {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Неоновые облака (Blobs) */
+.blob {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(138, 79, 255, 0.15) 0%, transparent 70%);
+    filter: blur(80px);
+    border-radius: 50%;
+    animation: move 20s infinite alternate;
+}
+
+.blob-1 { top: -10%; left: -10%; background: radial-gradient(circle, rgba(124, 77, 255, 0.2) 0%, transparent 70%); }
+.blob-2 { bottom: -10%; right: -10%; background: radial-gradient(circle, rgba(0, 229, 255, 0.1) 0%, transparent 70%); animation-duration: 25s; }
+.blob-3 { top: 40%; left: 50%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255, 75, 179, 0.1) 0%, transparent 70%); animation-duration: 15s; }
+
+@keyframes move {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(100px, 50px) scale(1.1); }
+    100% { transform: translate(-50px, 100px) scale(0.9); }
+}
+
+/* Сетка на фоне для технологичного вида */
+.bg-grid {
+    position: absolute;
+    width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+}
+
+/* --- ГЛАВНЫЙ ЭКРАН --- */
+
+.home-screen {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+.home-title {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 70px;
+    letter-spacing: 5px;
+    color: var(--text-main);
+    text-transform: uppercase;
+    /* Текстовый градиент */
+    background: linear-gradient(to bottom, #fff 0%, #a0a0a5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 30px rgba(138, 79, 255, 0.3));
+}
+
+.heart-menu {
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    perspective: 1000px; /* Эффект 3D */
+}
+
+.heart-item {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.heart-item svg {
+    position: absolute;
+    width: 100%; height: 100%;
+    fill: rgba(15, 15, 19, 0.6); /* Полупрозрачное сердце */
+    stroke: rgba(138, 79, 255, 0.3);
+    stroke-width: 0.3;
+    backdrop-filter: blur(5px); /* Эффект стекла */
+    transition: 0.6s ease;
+}
+
+.heart-text {
+    position: relative;
+    z-index: 2;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--text-main);
+    letter-spacing: 2px;
+    transition: 0.5s ease;
+    opacity: 0.8;
+}
+
+/* ЭФФЕКТЫ ПРИ НАВЕДЕНИИ */
+.heart-item:hover {
+    transform: translateY(-20px) scale(1.1);
+}
+
+.heart-item:hover svg {
+    fill: var(--accent-color);
+    stroke: none;
+    filter: 
+        drop-shadow(0 0 20px rgba(138, 79, 255, 0.6))
+        drop-shadow(0 0 60px rgba(138, 79, 255, 0.2));
+}
+
+.heart-item:hover .heart-text {
+    color: #000;
+    opacity: 1;
+    letter-spacing: 4px; /* Текст слегка раздвигается */
+}
+
+/* Пульсация сердец (медленная и глубокая) */
+@keyframes heartPulse {
+    0% { filter: drop-shadow(0 0 10px rgba(138, 79, 255, 0.1)); }
+    100% { filter: drop-shadow(0 0 25px rgba(138, 79, 255, 0.3)); }
+}
+
+.heart-item svg {
+    animation: heartPulse 3s infinite alternate ease-in-out;
+}
+
+
+
+/* --- МАГИЧЕСКИЕ ИСКОРКИ --- */
+
+#sparks-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.spark {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    filter: blur(1px);
+    /* Свечение искорок под цвет твоего сайта */
+    box-shadow: 0 0 10px 2px rgba(138, 79, 255, 0.8);
+    animation: fly var(--time) infinite linear;
+}
+
+@keyframes fly {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+        transform: translate(var(--x1), var(--y1)) scale(1);
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(var(--x2), var(--y2)) scale(0);
+        opacity: 0;
+    }
+}
