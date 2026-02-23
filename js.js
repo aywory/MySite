@@ -51,22 +51,16 @@ document.addEventListener('DOMContentLoaded', () => {
     statusFilter.addEventListener('change', filterGames);
 });
 
-// Логика для мобильного меню
+document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menu-toggle');
-    const filtersMenu = document.getElementById('filters-menu');
+    const filters = document.querySelector('.filters');
 
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        filtersMenu.classList.toggle('active');
-    });
-
-    // Закрывать меню при клике на фильтр (для удобства на мобилках)
-    const selects = filtersMenu.querySelectorAll('select');
-    selects.forEach(select => {
-        select.addEventListener('change', () => {
-            if (window.innerWidth <= 768) {
-                menuToggle.classList.remove('active');
-                filtersMenu.classList.remove('active');
-            }
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            filters.classList.toggle('active');
+            
+            // Анимация иконок (опционально)
+            menuToggle.classList.toggle('open');
         });
-    });
+    }
+});

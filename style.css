@@ -189,53 +189,72 @@ body {
     transition: 0.3s;
 }
 
-/* ПРАВИЛА ДЛЯ МОБИЛЬНЫХ (экран меньше 768px) */
+/* --- ПОЛНЫЙ МОБИЛЬНЫЙ ФИКС --- */
+
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: flex; /* Показываем кнопку только на мобилках */
+    /* Растягиваем контейнер */
+    .container {
+        width: 100%;
+        padding: 0 15px;
     }
 
-    /* Сетка: теперь ровно 1 карточка в ряд */
+    /* СЕТКА: Строго 1 колонка на всю ширину */
     .games-grid {
-        grid-template-columns: 1fr;
-        padding: 20px 0;
+        grid-template-columns: 1fr !important; 
         gap: 20px;
+        padding: 20px 0;
     }
 
-    /* Фильтры: превращаем в вертикальное меню */
+    /* КАРТОЧКА: Убираем фиксированные размеры, если были */
+    .game-card {
+        width: 100% !important;
+        margin: 0 auto;
+    }
+
+    /* ШАПКА: Делаем её выше, чтобы уместить лого и кнопку */
+    .header-content {
+        padding: 10px 0;
+    }
+
+    /* ФИЛЬТРЫ: Скрываем их и делаем вертикальный список */
     .filters {
+        display: none; /* Скрыто по умолчанию */
         position: absolute;
         top: 100%;
         left: 0;
-        right: 0;
-        background: #0f0f13; /* Цвет карточки */
+        width: 100%;
+        background: #0f0f13;
         flex-direction: column;
         padding: 20px;
-        gap: 15px;
-        border-bottom: 1px solid var(--glass-border);
-        display: none; /* Скрыто по умолчанию */
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        gap: 12px;
+        border-bottom: 2px solid var(--accent-color);
+        z-index: 9999;
     }
 
-    /* Показываем меню, когда добавлен класс .active */
+    /* Когда меню открыто (через JS) */
     .filters.active {
         display: flex;
     }
 
-    .filters select, .search-box input {
-        width: 100%; /* Растягиваем фильтры на всю ширину */
+    .filters select, .search-box, .search-box input {
+        width: 100% !important;
     }
 
-    .container {
-        padding: 0 15px;
+    /* КНОПКА МЕНЮ (Гамбургер) */
+    .menu-toggle {
+        display: flex !important; /* Показываем на мобилках */
+        flex-direction: column;
+        gap: 6px;
+        background: none;
+        border: none;
+        cursor: pointer;
     }
 
-    .card-content h3 {
-        font-size: 18px;
+    .menu-toggle span {
+        width: 30px;
+        height: 3px;
+        background: var(--accent-color);
+        border-radius: 5px;
+        transition: 0.3s;
     }
-
-    /* Анимация гамбургера при открытии */
-    .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .menu-toggle.active span:nth-child(2) { opacity: 0; }
-    .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
