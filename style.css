@@ -344,7 +344,6 @@ body {
     text-transform: uppercase;
     /* Текстовый градиент */
     background: linear-gradient(to bottom, #fff 0%, #a0a0a5 100%);
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 30px rgba(138, 79, 255, 0.3));
 }
@@ -457,5 +456,52 @@ body {
     100% {
         transform: translate(var(--x2), var(--y2)) scale(0);
         opacity: 0;
+    }
+}
+
+
+/* --- АДАПТАЦИЯ ГЛАВНОЙ СТРАНИЦЫ --- */
+
+@media (max-width: 768px) {
+    /* Центрируем содержимое и разрешаем прокрутку, если кнопок будет много */
+    .home-body {
+        align-items: flex-start; /* Начинаем сверху */
+        padding-top: 50px;
+        overflow-y: auto; /* Разрешаем скролл по вертикали */
+    }
+
+    .home-screen {
+        width: 100%;
+        padding-bottom: 50px;
+    }
+
+    .home-title {
+        font-size: 28px; /* Уменьшаем заголовок */
+        letter-spacing: 3px;
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+
+    /* Сердца встают в колонку */
+    .heart-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px; /* Расстояние между сердцами */
+    }
+
+    /* Уменьшаем размер сердец для мобилки */
+    .heart-item {
+        width: 180px;
+        height: 180px;
+    }
+
+    .heart-text {
+        font-size: 16px;
+    }
+
+    /* Ограничиваем размер фоновых облаков, чтобы не тормозило */
+    .blob {
+        width: 300px;
+        height: 300px;
     }
 }
