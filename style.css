@@ -329,138 +329,145 @@ body {
 
 /* --- ГЛАВНЫЙ ЭКРАН --- */
 
-.home-screen {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-}
+/* --- НОВОЕ МЕНЮ ИЗ СТЕКЛЯННЫХ КАРТОЧЕК --- */
 
-.home-title {
-    font-size: 48px;
-    font-weight: 900;
-    margin-bottom: 70px;
-    letter-spacing: 5px;
-    color: var(--text-main);
-    text-transform: uppercase;
-    /* Текстовый градиент */
-    background: linear-gradient(to bottom, #fff 0%, #a0a0a5 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 30px rgba(138, 79, 255, 0.3));
-}
-
-.heart-menu {
+.nav-container {
     display: flex;
-    gap: 80px;
+    gap: 30px;
     justify-content: center;
-    perspective: 1000px; /* Эффект 3D */
+    perspective: 1000px; /* Для 3D эффекта */
 }
 
-.heart-item {
+.nav-card {
     position: relative;
-    width: 240px;
-    height: 240px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 280px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.03); /* Почти прозрачный фон */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая рамка */
+    border-radius: 24px;
     text-decoration: none;
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px;
+    overflow: hidden;
+    backdrop-filter: blur(15px); /* Эффект размытия стекла */
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.heart-item svg {
+/* Номер раздела сверху */
+.card-number {
     position: absolute;
-    width: 100%; height: 100%;
-    fill: rgba(15, 15, 19, 0.6); /* Полупрозрачное сердце */
-    stroke: rgba(138, 79, 255, 0.3);
-    stroke-width: 0.3;
-    backdrop-filter: blur(5px); /* Эффект стекла */
-    transition: 0.6s ease;
+    top: 30px;
+    left: 40px;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+    opacity: 0.6;
 }
 
-.heart-text {
-    position: relative;
-    z-index: 2;
-    font-size: 22px;
+/* Название раздела */
+.card-title {
+    font-size: 32px;
     font-weight: 900;
     color: var(--text-main);
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+/* Внутреннее свечение, которое появляется при наведении */
+.card-glow {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 100%, rgba(138, 79, 255, 0.3), transparent 70%);
+    opacity: 0;
     transition: 0.5s ease;
-    opacity: 0.8;
 }
 
-/* ЭФФЕКТЫ ПРИ НАВЕДЕНИИ */
-.heart-item:hover {
-    transform: translateY(-20px) scale(1.1);
+/* --- ЭФФЕКТЫ ПРИ НАВЕДЕНИИ --- */
+
+.nav-card:hover {
+    transform: translateY(-20px) rotateX(10deg); /* Наклон и подъем */
+    border-color: rgba(138, 79, 255, 0.5);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(138, 79, 255, 0.2);
 }
 
-.heart-item:hover svg {
-    fill: var(--accent-color);
-    stroke: none;
-    filter: 
-        drop-shadow(0 0 20px rgba(138, 79, 255, 0.6))
-        drop-shadow(0 0 60px rgba(138, 79, 255, 0.2));
-}
-
-.heart-item:hover .heart-text {
-    color: #000;
+.nav-card:hover .card-glow {
     opacity: 1;
-    letter-spacing: 4px; /* Текст слегка раздвигается */
 }
 
-/* Пульсация сердец (медленная и глубокая) */
-@keyframes heartPulse {
-    0% { filter: drop-shadow(0 0 10px rgba(138, 79, 255, 0.1)); }
-    100% { filter: drop-shadow(0 0 25px rgba(138, 79, 255, 0.3)); }
+.nav-card:hover .card-title {
+    color: #fff;
+    transform: scale(1.05);
 }
 
-.heart-item svg {
-    animation: heartPulse 3s infinite alternate ease-in-out;
+.nav-card:hover .card-number {
+    opacity: 1;
+    transform: translateX(5px);
 }
 
-
-
-/* --- АДАПТАЦИЯ ГЛАВНОЙ СТРАНИЦЫ --- */
-
-@media (max-width: 768px) {
-    /* Центрируем содержимое и разрешаем прокрутку, если кнопок будет много */
-    .home-body {
-        align-items: flex-start; /* Начинаем сверху */
-        padding-top: 50px;
-        overflow-y: auto; /* Разрешаем скролл по вертикали */
-    }
-
-    .home-screen {
-        width: 100%;
-        padding-bottom: 50px;
-    }
-
-    .home-title {
-        font-size: 28px; /* Уменьшаем заголовок */
-        letter-spacing: 3px;
-        margin-bottom: 40px;
-        padding: 0 20px;
-    }
-
-    /* Сердца встают в колонку */
-    .heart-menu {
+/* Адаптация для мобилок */
+@media (max-width: 900px) {
+    .nav-container {
         flex-direction: column;
         align-items: center;
-        gap: 40px; /* Расстояние между сердцами */
+        gap: 20px;
     }
-
-    /* Уменьшаем размер сердец для мобилки */
-    .heart-item {
-        width: 180px;
-        height: 180px;
+    .nav-card {
+        width: 100%;
+        max-width: 320px;
+        height: 200px; /* Делаем горизонтальными на мобилках */
+        justify-content: center;
+        padding: 20px;
     }
-
-    .heart-text {
-        font-size: 16px;
+    .card-number {
+        top: 20px;
+        left: 20px;
     }
+}
 
-    /* Ограничиваем размер фоновых облаков, чтобы не тормозило */
-    .blob {
-        width: 300px;
-        height: 300px;
+/* --- СТИЛИ ДЛЯ ИКОНОК В КАРТОЧКАХ --- */
+
+.card-icon {
+    position: absolute;
+    top: 40%; /* Располагаем по центру верхней части */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    color: var(--text-main);
+    opacity: 0.1; /* В обычном состоянии почти не видно */
+    transition: all 0.6s ease;
+}
+
+.card-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* ЭФФЕКТ ПРИ НАВЕДЕНИИ */
+.nav-card:hover .card-icon {
+    opacity: 0.8; /* Иконка становится яркой */
+    transform: translate(-50%, -60%) scale(1.2); /* Слегка всплывает вверх */
+    color: var(--accent-color);
+    filter: drop-shadow(0 0 15px rgba(138, 79, 255, 0.6));
+}
+
+/* Маленький фикс для заголовка на мобилках */
+@media (max-width: 900px) {
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        left: auto;
+        right: 30px; /* На мобилках иконка будет справа */
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .nav-card:hover .card-icon {
+        transform: translateY(-50%) scale(1.1);
     }
 }
