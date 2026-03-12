@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menuToggle.addEventListener('click', () => {
             filters.classList.toggle('active');
             
-            // Анимация иконок (опционально)
+
             menuToggle.classList.toggle('open');
         });
     }
