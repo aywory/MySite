@@ -66,18 +66,109 @@ body {
     appearance: none;
 }
 
-.filters select option {
-    background-color: #16161c;
-    color: #b0b0b8;
-    padding: 10px;
-}
+/* --- ИСПРАВЛЕНИЕ ВЫПАДАЮЩИХ СПИСКОВ --- */
 
 .filters select {
-    padding-right: 40px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238a4fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 15px center;
+    background: linear-gradient(180deg, #1a1a24 0%, #16161c 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #efefff; /* Более яркий текст для заголовка */
+    padding: 12px 18px;
+    border-radius: 12px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    appearance: none; /* Убираем стандартную стрелку браузера */
 }
+/* --- КАСТОМНЫЕ ВЫПАДАЮЩИЕ СПИСКИ --- */
+/* --- ИСПРАВЛЕНИЕ ВЫПАДАЮЩИХ СПИСКОВ --- */
+.custom-select {
+    position: relative;
+    min-width: 180px;
+    user-select: none;
+    z-index: 100;
+}
+
+.select-trigger {
+    background: linear-gradient(180deg, #1a1a24 0%, #16161c 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #b0b0b8;
+    padding: 12px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s ease;
+}
+
+.select-trigger::after {
+    content: '';
+    width: 8px; height: 8px;
+    border-right: 2px solid var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    transform: rotate(45deg);
+    margin-bottom: 4px;
+    transition: 0.3s;
+}
+
+.custom-select.open .select-trigger {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(138, 79, 255, 0.2);
+}
+
+.custom-select.open .select-trigger::after {
+    transform: rotate(-135deg);
+    margin-bottom: -4px;
+}
+
+/* Выпадающая панель */
+.select-options {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0; right: 0;
+    background: #121218;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    overflow: hidden;
+    display: none; /* Скрыто */
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.custom-select.open .select-options {
+    display: block;
+}
+
+.option {
+    padding: 12px 18px;
+    color: #b0b0b8;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.option:hover {
+    background: rgba(138, 79, 255, 0.1);
+    color: #fff;
+    padding-left: 22px; /* Эффект сдвига */
+}
+
+.option.active {
+    color: var(--accent-color);
+    background: rgba(138, 79, 255, 0.05);
+}
+
+/* --- ИСПРАВЛЕНИЕ ВЫПАДАЮЩИХ СПИСКОВ --- */
 
 .search-box input:hover, .filters select:hover {
     border-color: rgba(138, 79, 255, 0.4);

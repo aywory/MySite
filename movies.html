@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,87 +8,101 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<header class="main-header">
-    <div class="container header-content">
-        <!-- Логотип-сердце ведет на главную -->
-        <a href="index.html" class="main-logo">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-            </svg>
-        </a>
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="main-logo">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg>
+            </a>
 
-        <div class="filters">
-            <div class="search-box">
-                <input type="text" id="search" placeholder="Поиск фильма...">
-            </div>
-            
-            <!-- Фильтр по жанрам -->
-            <select id="genre-filter">
-                <option value="all">Все жанры</option>
-                <option value="horror">Хоррор</option>
-                <option value="sci-fi">Фантастика</option>
-                <option value="drama">Драма</option>
-            </select>
+            <!-- Кнопка меню для мобилок -->
+            <button class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- Меню фильтров и поиск -->
+            <div class="filters" id="filters-menu">
+                <div class="search-box">
+                    <input type="text" id="search" placeholder="Поиск фильма...">
+                </div>
 
-            <!-- Фильтр по качеству/типу -->
-            <select id="quality-filter">
-                <option value="all">Любое качество</option>
-                <option value="4k">4K Ultra HD</option>
-                <option value="fhd">Full HD</option>
-            </select>
+                <div class="custom-select" data-filter="genre">
+                    <div class="select-trigger">Все жанры</div>
+                    <div class="select-options">
+                        <div class="option active" data-value="all">Все жанры</div>
+                        <div class="option" data-value="horror">Хоррор</div>
+                        <div class="option" data-value="sci-fi">Фантастика</div>
+                        <div class="option" data-value="drama">Драма</div>
+                    </div>
+                </div>
 
-            <!-- Фильтр просмотра -->
-            <select id="status-filter">
-                <option value="all">Статус: Все</option>
-                <option value="done">Просмотрено</option>
-                <option value="undone">Не просмотрено</option>
-            </select>
-        </div>
-    </div>
-</header>
+                <div class="custom-select" data-filter="quality">
+                    <div class="select-trigger">Любое качество</div>
+                    <div class="select-options">
+                        <div class="option active" data-value="all">Любое качество</div>
+                        <div class="option" data-value="4k">4K Ultra HD</div>
+                        <div class="option" data-value="fhd">Full HD</div>
+                    </div>
+                </div>
 
-<main class="container">
-    <div class="games-grid">
-        
-        <!-- ПРИМЕР ФИЛЬМА 1 -->
-        <div class="game-card">
-            <div class="card-image">
-                <img src="images/interstellar.jpg" alt="Interstellar">
-                <span class="badge-year">2014</span>
-            </div>
-            <div class="card-content">
-                <h3>Интерстеллар</h3>
-                <p>Научно-фантастический шедевр Кристофера Нолана о путешествии сквозь время и пространство.</p>
-                <div class="tags">
-                    <span class="tag tag-sci-fi">Фантастика</span>
-                    <span class="tag tag-4k">4K</span>
-                    <span class="tag tag-done">Просмотрено</span>
+                <div class="custom-select" data-filter="status">
+                    <div class="select-trigger">Статус</div>
+                    <div class="select-options">
+                        <div class="option active" data-value="all">Статус: Все</div>
+                        <div class="option" data-value="done">Просмотрено</div>
+                        <div class="option" data-value="undone">Не просмотрено</div>
+                    </div>
                 </div>
             </div>
         </div>
+    </header>
 
-        <!-- ПРИМЕР ФИЛЬМА 2 -->
-        <div class="game-card">
-            <div class="card-image">
-                <img src="images/conjuring.jpg" alt="The Conjuring">
-                <span class="badge-year">2013</span>
-            </div>
-            <div class="card-content">
-                <h3>Заклятие</h3>
-                <p>Один из самых страшных хорроров современности, основанный на реальных расследованиях Эда и Лоррейн Уоррен.</p>
-                <div class="tags">
-                    <span class="tag tag-horror">Хоррор</span>
-                    <span class="tag tag-fhd">Full HD</span>
-                    <span class="tag tag-undone">Не просмотрено</span>
+    <main class="container">
+        <div class="games-grid">
+
+            <div class="game-card">
+                <div class="card-image">
+                    <img src="images/interstellar.jpg" alt="Interstellar">
+                    <span class="badge-year">2014</span>
+                </div>
+                <div class="card-content">
+                    <h3>Интерстеллар</h3>
+                    <p>Научно-фантастический шедевр Кристофера Нолана о путешествии сквозь время и пространство.</p>
+                    <div class="tags">
+                        <span class="tag tag-sci-fi">Фантастика</span>
+                        <span class="tag tag-4k">4K</span>
+                        <span class="tag tag-done">Просмотрено</span>
+                    </div>
                 </div>
             </div>
+
+            <div class="game-card">
+                <div class="card-image">
+                    <img src="images/conjuring.jpg" alt="The Conjuring">
+                    <span class="badge-year">2013</span>
+                </div>
+                <div class="card-content">
+                    <h3>Заклятие</h3>
+                    <p>Один из самых страшных хорроров современности, основанный на реальных расследованиях Эда и
+                        Лоррейн Уоррен.</p>
+                    <div class="tags">
+                        <span class="tag tag-horror">Хоррор</span>
+                        <span class="tag tag-fhd">Full HD</span>
+                        <span class="tag tag-undone">Не просмотрено</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
+    </main>
 
-    </div>
-</main>
-
-<script src="js.js"></script>
+    <script src="js.js"></script>
 </body>
+
 </html>
