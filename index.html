@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная — Твой Мир</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Главная</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-mobile.css" media="(max-width: 1100px)">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="home-body">
@@ -16,58 +19,70 @@
         <div class="blob blob-2"></div>
         <div class="blob blob-3"></div>
         <div class="bg-grid"></div>
-        <div id="sparks-container"></div>
     </div>
 
     <main class="home-screen">
 
+        <div class="home-wordmark">
+            <h1>Твой мир</h1>
+            <p>Игры, фильмы, музыка — всё в одном месте</p>
+        </div>
+
         <nav class="nav-container">
-            <a href="games.html" class="nav-card">
+
+            <!-- Игры -->
+            <a href="pages/games.html" class="nav-card">
                 <div class="card-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                         stroke-linejoin="round">
-                        <line x1="6" y1="12" x2="10" y2="12"></line>
-                        <line x1="8" y1="10" x2="8" y2="14"></line>
-                        <line x1="15" y1="13" x2="15.01" y2="13"></line>
-                        <line x1="18" y1="11" x2="18.01" y2="11"></line>
+                        <line x1="6" y1="12" x2="10" y2="12" />
+                        <line x1="8" y1="10" x2="8" y2="14" />
+                        <line x1="15" y1="13" x2="15.01" y2="13" stroke-width="2.5" />
+                        <line x1="18" y1="11" x2="18.01" y2="11" stroke-width="2.5" />
                         <path
-                            d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-1.095 9.484-.326 10.41.333.4.795.632 1.341.632h1.65a2 2 0 0 0 1.838-1.192L8.5 15h7l1.291 3.408A2 2 0 0 0 18.63 19.6h1.65c.546 0 1.008-.232 1.34-.632.77-.926-.32-10.358-.326-10.41A4 4 0 0 0 17.32 5z">
-                        </path>
+                            d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-1.095 9.484-.326 10.41.333.4.795.632 1.341.632h1.65a2 2 0 0 0 1.838-1.192L8.5 15h7l1.291 3.408A2 2 0 0 0 18.63 19.6h1.65c.546 0 1.008-.232 1.34-.632.77-.926-.32-10.358-.326-10.41A4 4 0 0 0 17.32 5z" />
                     </svg>
                 </div>
+                <span class="card-label">Игры</span>
                 <div class="card-glow"></div>
             </a>
 
-            <a href="movies.html" class="nav-card">
+            <!-- Фильмы -->
+            <a href="pages/movies.html" class="nav-card">
                 <div class="card-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                         stroke-linejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
-                        <line x1="7" y1="2" x2="7" y2="22"></line>
-                        <line x1="17" y1="2" x2="17" y2="22"></line>
-                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                        <line x1="2" y1="7" x2="7" y2="7"></line>
-                        <line x1="2" y1="17" x2="7" y2="17"></line>
-                        <line x1="17" y1="17" x2="22" y2="17"></line>
-                        <line x1="17" y1="7" x2="22" y2="7"></line>
+                        <rect x="2" y="2" width="20" height="20" rx="2.18" />
+                        <line x1="7" y1="2" x2="7" y2="22" />
+                        <line x1="17" y1="2" x2="17" y2="22" />
+                        <line x1="2" y1="12" x2="22" y2="12" />
+                        <line x1="2" y1="7" x2="7" y2="7" />
+                        <line x1="2" y1="17" x2="7" y2="17" />
+                        <line x1="17" y1="17" x2="22" y2="17" />
+                        <line x1="17" y1="7" x2="22" y2="7" />
                     </svg>
                 </div>
+                <span class="card-label">Фильмы</span>
                 <div class="card-glow"></div>
             </a>
 
-            <a href="#" class="nav-card">
+            <!-- Рецепты -->
+            <a href="pages/recipes.html" class="nav-card">
                 <div class="card-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
                         stroke-linejoin="round">
-                        <path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 9.18 0A4 4 0 0 1 18 13.87V21H6Z"></path>
-                        <line x1="6" y1="17" x2="18" y2="17"></line>
+                        <path d="M3 11l19-9-9 19-2-8-8-2z" />
                     </svg>
                 </div>
+                <span class="card-label">Рецепты</span>
                 <div class="card-glow"></div>
             </a>
+
         </nav>
+
     </main>
-    <script src="js.js"></script>
+
+    <script src="assets/js/js.js"></script>
 </body>
 
 </html>

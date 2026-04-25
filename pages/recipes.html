@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рецепты</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style-mobile.css" media="(max-width: 1100px)">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="header-inner">
+
+                <a href="../index.html" class="main-logo">
+                    <div class="logo-mark">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <span class="logo-name">Твой Мир</span>
+                </a>
+
+                <button class="menu-toggle" id="menu-toggle" aria-label="Открыть фильтры">
+                    <span></span><span></span><span></span>
+                </button>
+
+                <div class="filters" id="filters-menu">
+
+                    <div class="search-wrap">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" id="search" placeholder="Поиск рецептов...">
+                    </div>
+
+                    <div class="custom-select" data-filter="category">
+                        <div class="select-trigger">Категория <span class="arrow"></span></div>
+                        <div class="select-options">
+                            <div class="option active" data-value="all">Все</div>
+                            <div class="option" data-value="breakfast">Завтрак</div>
+                            <div class="option" data-value="lunch">Обед</div>
+                            <div class="option" data-value="dinner">Ужин</div>
+                            <div class="option" data-value="dessert">Десерт</div>
+                            <div class="option" data-value="snack">Перекус</div>
+                        </div>
+                    </div>
+
+                    <div class="custom-select" data-filter="difficulty">
+                        <div class="select-trigger">Сложность <span class="arrow"></span></div>
+                        <div class="select-options">
+                            <div class="option active" data-value="all">Любая</div>
+                            <div class="option" data-value="easy">Легко</div>
+                            <div class="option" data-value="medium">Средне</div>
+                            <div class="option" data-value="hard">Сложно</div>
+                        </div>
+                    </div>
+
+                    <div class="custom-select" data-filter="cooked">
+                        <div class="select-trigger">Статус <span class="arrow"></span></div>
+                        <div class="select-options">
+                            <div class="option active" data-value="all">Все</div>
+                            <div class="option" data-value="tried">Готовил</div>
+                            <div class="option" data-value="nottried">Не готовил</div>
+                        </div>
+                    </div>
+
+                    <div class="results-count">Найдено: <span id="count">4</span></div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-wrapper">
+        <div class="section-head">
+            <h2 class="section-title">Рецепты</h2>
+            <span class="section-badge" id="badge-count">4 рецепта</span>
+        </div>
+
+        <div class="games-grid" id="games-grid">
+
+            <!-- Карточка 1 -->
+            <div class="game-card" data-tags="breakfast easy tried">
+                <div class="card-image">
+                    <img src="../assets/images/pancakes.jpg" alt="Панкейки" loading="lazy">
+                    <span class="badge-year recipe-time">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" style="vertical-align:-1px">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        20 мин
+                    </span>
+                </div>
+                <div class="card-content">
+                    <h3>Панкейки</h3>
+                    <p>Пышные американские панкейки на кефире — мягкие внутри, золотистые снаружи. Идеальный завтрак за
+                        20 минут.</p>
+                    <div class="tags">
+                        <span class="tag tag-breakfast">Завтрак</span>
+                        <span class="tag tag-easy">Легко</span>
+                        <span class="tag tag-tried status-toggle" data-state="tried">Готовил</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="game-card" data-tags="dinner medium nottried">
+                <div class="card-image">
+                    <img src="../assets/images/pasta.jpg" alt="Паста карбонара" loading="lazy">
+                    <span class="badge-year recipe-time">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" style="vertical-align:-1px">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        35 мин
+                    </span>
+                </div>
+                <div class="card-content">
+                    <h3>Паста Карбонара</h3>
+                    <p>Классическая римская паста с беконом, яйцами и пармезаном. Никаких сливок — только оригинальный
+                        рецепт.</p>
+                    <div class="tags">
+                        <span class="tag tag-dinner">Ужин</span>
+                        <span class="tag tag-medium">Средне</span>
+                        <span class="tag tag-nottried status-toggle" data-state="nottried">Не готовил</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="game-card" data-tags="dessert medium tried">
+                <div class="card-image">
+                    <img src="../assets/images/cheesecake.jpg" alt="Чизкейк" loading="lazy">
+                    <span class="badge-year recipe-time">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" style="vertical-align:-1px">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        1.5 ч
+                    </span>
+                </div>
+                <div class="card-content">
+                    <h3>Чизкейк Нью-Йорк</h3>
+                    <p>Нежный сливочный чизкейк на песочной основе из крекеров. Подаётся холодным с ягодным соусом.</p>
+                    <div class="tags">
+                        <span class="tag tag-dessert">Десерт</span>
+                        <span class="tag tag-medium">Средне</span>
+                        <span class="tag tag-tried status-toggle" data-state="tried">Готовил</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 4 -->
+            <div class="game-card" data-tags="snack easy nottried">
+                <div class="card-image">
+                    <img src="../assets/images/guacamole.jpg" alt="Гуакамоле" loading="lazy">
+                    <span class="badge-year recipe-time">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" style="vertical-align:-1px">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        10 мин
+                    </span>
+                </div>
+                <div class="card-content">
+                    <h3>Гуакамоле</h3>
+                    <p>Классический мексиканский соус из авокадо с лаймом, кинзой и томатами. Готовится за 10 минут.</p>
+                    <div class="tags">
+                        <span class="tag tag-snack">Перекус</span>
+                        <span class="tag tag-easy">Легко</span>
+                        <span class="tag tag-nottried status-toggle" data-state="nottried">Не готовил</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty state -->
+            <div class="empty-state" id="empty-state">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <p>Ничего не найдено</p>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="../assets/js/js.js"></script>
+</body>
+
+</html>

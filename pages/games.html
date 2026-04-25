@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игры</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style-mobile.css" media="(max-width: 1100px)">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="header-inner">
+
+                <!-- Лого -->
+                <a href="../index.html" class="main-logo">
+                    <div class="logo-mark">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <span class="logo-name">Твой Мир</span>
+                </a>
+
+                <!-- Гамбургер (только мобилка) -->
+                <button class="menu-toggle" id="menu-toggle" aria-label="Открыть фильтры">
+                    <span></span><span></span><span></span>
+                </button>
+
+                <!-- Фильтры -->
+                <div class="filters" id="filters-menu">
+
+                    <div class="search-wrap">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" id="search" placeholder="Поиск игр...">
+                    </div>
+
+                    <div class="custom-select" data-filter="mode">
+                        <div class="select-trigger">Режим <span class="arrow"></span></div>
+                        <div class="select-options">
+                            <div class="option active" data-value="all">Все режимы</div>
+                            <div class="option" data-value="single">Singleplayer</div>
+                            <div class="option" data-value="multi">Multiplayer</div>
+                        </div>
+                    </div>
+
+                    <div class="custom-select" data-filter="performance">
+                        <div class="select-trigger">Производительность <span class="arrow"></span></div>
+                        <div class="select-options">
+                            <div class="option active" data-value="all">Все</div>
+                            <div class="option" data-value="runs">Тянет</div>
+                            <div class="option" data-value="noruns">Не тянет</div>
+                        </div>
+                    </div>
+
+                    <div class="custom-select" data-filter="radmin">
+                        <div class="select-trigger">Сеть <span class="arrow"></span></div>
+                        <div class="select-options">
+                            <div class="option active" data-value="all">Все</div>
+                            <div class="option" data-value="radmin">Radmin</div>
+                            <div class="option" data-value="noradmin">NoRadmin</div>
+                        </div>
+                    </div>
+
+                    <div class="custom-select" data-filter="status">
+                        <div class="select-trigger">Статус <span class="arrow"></span></div>
+                        <div class="select-options">
+                            <div class="option active" data-value="all">Все</div>
+                            <div class="option" data-value="done">Пройдено</div>
+                            <div class="option" data-value="undone">Не пройдено</div>
+                        </div>
+                    </div>
+
+                    <div class="results-count">Найдено: <span id="count">8</span></div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-wrapper">
+        <div class="section-head">
+            <h2 class="section-title">Игры</h2>
+            <span class="section-badge" id="badge-count">8 игр</span>
+        </div>
+
+        <div class="games-grid" id="games-grid">
+
+            <div class="game-card" data-tags="single noradmin runs undone">
+                <div class="card-image">
+                    <img src="../assets/images/Brothers A Tale of Two Sons.jpg" alt="Brothers: A Tale of Two Sons"
+                        loading="lazy">
+                    <span class="badge-year">2013</span>
+                </div>
+                <div class="card-content">
+                    <h3>Brothers: A Tale of Two Sons</h3>
+                    <p>Эмоциональное приключение-головоломка, где вы одновременно управляете двумя братьями, помогая им
+                        спасти отца.</p>
+                    <div class="tags">
+                        <span class="tag tag-single">Single</span>
+                        <span class="tag tag-noradmin">NoRadmin</span>
+                        <span class="tag tag-runs">Тянет</span>
+                        <span class="tag tag-undone status-toggle" data-state="undone">Не пройдено</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card" data-tags="multi single radmin runs done">
+                <div class="card-image">
+                    <img src="../assets/images/Blanc.jpg" alt="Blanc" loading="lazy">
+                    <span class="badge-year">2023</span>
+                </div>
+                <div class="card-content">
+                    <h3>Blanc</h3>
+                    <p>Художественное приключение волчонка и олененка в заснеженном мире. Полностью нарисовано вручную.
+                    </p>
+                    <div class="tags">
+                        <span class="tag tag-multi">Multi</span>
+                        <span class="tag tag-single">Single</span>
+                        <span class="tag tag-radmin">Radmin</span>
+                        <span class="tag tag-runs">Тянет</span>
+                        <span class="tag tag-done status-toggle" data-state="done">Пройдено</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card" data-tags="multi single radmin runs undone">
+                <div class="card-image">
+                    <img src="../assets/images/Terraria.jpg" alt="Terraria" loading="lazy">
+                    <span class="badge-year">2011</span>
+                </div>
+                <div class="card-content">
+                    <h3>Terraria</h3>
+                    <p>Мир — это ваш холст. Копайте, сражайтесь, исследуйте и стройте в огромной пиксельной песочнице.
+                    </p>
+                    <div class="tags">
+                        <span class="tag tag-multi">Multi</span>
+                        <span class="tag tag-single">Single</span>
+                        <span class="tag tag-radmin">Radmin</span>
+                        <span class="tag tag-runs">Тянет</span>
+                        <span class="tag tag-undone status-toggle" data-state="undone">Не пройдено</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card" data-tags="multi single radmin noruns undone">
+                <div class="card-image">
+                    <img src="../assets/images/It_takes_two.jpg" alt="It Takes Two" loading="lazy">
+                    <span class="badge-year">2021</span>
+                </div>
+                <div class="card-content">
+                    <h3>It Takes Two</h3>
+                    <p>Безумное приключение, созданное специально для двоих. Помогите Коди и Мэй преодолеть разногласия.
+                    </p>
+                    <div class="tags">
+                        <span class="tag tag-multi">Multi</span>
+                        <span class="tag tag-single">Single</span>
+                        <span class="tag tag-radmin">Radmin</span>
+                        <span class="tag tag-noruns">Не тянет</span>
+                        <span class="tag tag-undone status-toggle" data-state="undone">Не пройдено</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card" data-tags="multi single radmin runs undone">
+                <div class="card-image">
+                    <img src="../assets/images/Minecraft.jpg" alt="Minecraft" loading="lazy">
+                    <span class="badge-year">2011</span>
+                </div>
+                <div class="card-content">
+                    <h3>Minecraft</h3>
+                    <p>Мир из блоков, где ограничивает только воображение. Стройте, добывайте ресурсы и выживайте.</p>
+                    <div class="tags">
+                        <span class="tag tag-multi">Multi</span>
+                        <span class="tag tag-single">Single</span>
+                        <span class="tag tag-radmin">Radmin</span>
+                        <span class="tag tag-runs">Тянет</span>
+                        <span class="tag tag-undone status-toggle" data-state="undone">Не пройдено</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card" data-tags="multi single radmin noruns undone">
+                <div class="card-image">
+                    <img src="../assets/images/Unravel_two.jpg" alt="Unravel Two" loading="lazy">
+                    <span class="badge-year">2018</span>
+                </div>
+                <div class="card-content">
+                    <h3>Unravel Two</h3>
+                    <p>Путешествие двух Ярни, связанных одной нитью. Помогайте друг другу преодолевать препятствия.</p>
+                    <div class="tags">
+                        <span class="tag tag-multi">Multi</span>
+                        <span class="tag tag-single">Single</span>
+                        <span class="tag tag-radmin">Radmin</span>
+                        <span class="tag tag-noruns">Не тянет</span>
+                        <span class="tag tag-undone status-toggle" data-state="undone">Не пройдено</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card" data-tags="single noradmin runs undone">
+                <div class="card-image">
+                    <img src="../assets/images/Child_of_light.jpg" alt="Child of Light" loading="lazy">
+                    <span class="badge-year">2014</span>
+                </div>
+                <div class="card-content">
+                    <h3>Child of Light</h3>
+                    <p>Поэтичное приключение юной Авроры в волшебном мире Лемурии. Акварельный стиль и пошаговые бои.
+                    </p>
+                    <div class="tags">
+                        <span class="tag tag-single">Single</span>
+                        <span class="tag tag-noradmin">NoRadmin</span>
+                        <span class="tag tag-runs">Тянет</span>
+                        <span class="tag tag-undone status-toggle" data-state="undone">Не пройдено</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card" data-tags="single multi noruns undone">
+                <div class="card-image">
+                    <img src="../assets/images/Cuphead.jpg" alt="Cuphead" loading="lazy">
+                    <span class="badge-year">2017</span>
+                </div>
+                <div class="card-content">
+                    <h3>Cuphead</h3>
+                    <p>Невероятный Boss Rush в стиле классических мультфильмов 1930-х. Хардкорный шедевр с уникальным
+                        артом.</p>
+                    <div class="tags">
+                        <span class="tag tag-single">Single</span>
+                        <span class="tag tag-multi">Multi</span>
+                        <span class="tag tag-noruns">Не тянет</span>
+                        <span class="tag tag-undone status-toggle" data-state="undone">Не пройдено</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty state -->
+            <div class="empty-state" id="empty-state">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <p>Ничего не найдено</p>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="../assets/js/js.js"></script>
+</body>
+
+</html>

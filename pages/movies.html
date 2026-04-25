@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фильмы</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style-mobile.css" media="(max-width: 1100px)">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="header-inner">
+
+                <a href="../index.html" class="main-logo">
+                    <div class="logo-mark">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>
+                    </div>
+                    <span class="logo-name">Твой Мир</span>
+                </a>
+
+                <button class="menu-toggle" id="menu-toggle" aria-label="Открыть фильтры">
+                    <span></span><span></span><span></span>
+                </button>
+
+                <div class="filters" id="filters-menu">
+
+                    <div class="search-wrap">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" id="search" placeholder="Поиск фильмов...">
+                    </div>
+
+                    <div class="custom-select" data-filter="genre">
+                        <div class="select-trigger">Жанр <span class="arrow"></span></div>
+                        <div class="select-options">
+                            <div class="option active" data-value="all">Все жанры</div>
+                            <div class="option" data-value="horror">Хоррор</div>
+                            <div class="option" data-value="sci-fi">Фантастика</div>
+                            <div class="option" data-value="drama">Драма</div>
+                        </div>
+                    </div>
+
+                    <div class="custom-select" data-filter="quality">
+                        <div class="select-trigger">Качество <span class="arrow"></span></div>
+                        <div class="select-options">
+                            <div class="option active" data-value="all">Любое</div>
+                            <div class="option" data-value="4k">4K Ultra HD</div>
+                            <div class="option" data-value="fhd">Full HD</div>
+                        </div>
+                    </div>
+
+                    <div class="custom-select" data-filter="status">
+                        <div class="select-trigger">Статус <span class="arrow"></span></div>
+                        <div class="select-options">
+                            <div class="option active" data-value="all">Все</div>
+                            <div class="option" data-value="done">Просмотрено</div>
+                            <div class="option" data-value="undone">Не просмотрено</div>
+                        </div>
+                    </div>
+
+                    <div class="results-count">Найдено: <span id="count">2</span></div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container page-wrapper">
+        <div class="section-head">
+            <h2 class="section-title">Фильмы</h2>
+            <span class="section-badge" id="badge-count">2 фильма</span>
+        </div>
+
+        <div class="games-grid" id="games-grid">
+
+            <div class="game-card" data-tags="sci-fi 4k done">
+                <div class="card-image">
+                    <img src="../assets/images/interstellar.jpg" alt="Интерстеллар" loading="lazy">
+                    <span class="badge-year">2014</span>
+                </div>
+                <div class="card-content">
+                    <h3>Интерстеллар</h3>
+                    <p>Научно-фантастический шедевр Кристофера Нолана о путешествии сквозь время и пространство.</p>
+                    <div class="tags">
+                        <span class="tag tag-sci-fi">Фантастика</span>
+                        <span class="tag tag-4k">4K</span>
+                        <span class="tag tag-done status-toggle" data-state="done">Просмотрено</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-card" data-tags="horror fhd undone">
+                <div class="card-image">
+                    <img src="../assets/images/conjuring.jpg" alt="Заклятие" loading="lazy">
+                    <span class="badge-year">2013</span>
+                </div>
+                <div class="card-content">
+                    <h3>Заклятие</h3>
+                    <p>Один из самых страшных хорроров современности, основанный на реальных расследованиях Уорренов.
+                    </p>
+                    <div class="tags">
+                        <span class="tag tag-horror">Хоррор</span>
+                        <span class="tag tag-fhd">Full HD</span>
+                        <span class="tag tag-undone status-toggle" data-state="undone">Не просмотрено</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty state -->
+            <div class="empty-state" id="empty-state">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <p>Ничего не найдено</p>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="../assets/js/js.js"></script>
+</body>
+
+</html>

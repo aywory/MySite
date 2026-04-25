@@ -1,0 +1,100 @@
+/* ═══════════════════════════════════════
+   style-mobile.css
+   Все медиазапросы для мобильных устройств
+   Подключается ПОСЛЕ style.css
+═══════════════════════════════════════ */
+
+/* ═══════════════════════════════════════
+   MOBILE
+═══════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Header */
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 12px 0;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .filters {
+    display: none;
+    width: 100%;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 12px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    order: 10;
+  }
+
+  .filters.active {
+    display: flex;
+  }
+
+  .search-wrap {
+    width: 100%;
+  }
+  #search {
+    width: 100% !important;
+  }
+
+  .custom-select {
+    width: 100%;
+  }
+  .select-trigger {
+    width: 100%;
+  }
+  .select-options {
+    position: static;
+    box-shadow: none;
+    border: 1px solid var(--border);
+    margin-top: 4px;
+  }
+
+  .results-count {
+    display: none;
+  }
+
+  /* Grid */
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .page-wrapper {
+    padding: 24px 0 48px;
+  }
+
+  /* Home */
+  .nav-container {
+    gap: 16px;
+  }
+  .nav-card {
+    width: 150px;
+    height: 150px;
+    border-radius: 24px;
+  }
+  .card-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+  .card-label {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-card {
+    width: 130px;
+    height: 130px;
+  }
+}
