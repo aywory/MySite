@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+Ôªø<!DOCTYPE html>
 <html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>–†–µ—?–µ–ø—?—?</title>
-    <meta name="description" content="–?–æ–ª–ª–µ–∫—?–∏—è —?–µ—?–µ–ø—?–æ–≤ –ø–æ –∫–∞—?–µ–≥–æ—?–∏—è–º, —Å—?–µ–ø–µ–Ω–∏ —Å–ª–æ–∂–Ω–æ—Å—?–∏ –∏ —Å—?–∞—?—?—Å—? –≥–æ—?–æ–≤–∫–∏ —Å —?–¥–æ–±–Ω–æ–π —Å–æ—?—?–∏—?–æ–≤–∫–æ–π.">
-    <meta property="og:title" content="–†–µ—?–µ–ø—?—? | –¢–≤–æ–π –?–∏—?">
-    <meta property="og:description" content="–?–æ–¥–±–æ—?–∫–∞ —?–µ—?–µ–ø—?–æ–≤ —Å —?–∏–ª—?—?—?–∞–º–∏ –ø–æ —?–∏–ø—? –±–ª—?–¥–∞, —Å–ª–æ–∂–Ω–æ—Å—?–∏ –∏ —Å—?–∞—?—?—Å—? –≥–æ—?–æ–≤–∫–∏.">
+    <title>Recipes</title>
+    <meta name="description" content="Recipe collection by category and difficulty with preparation status.">
+    <meta property="og:title" content="Recipes | Tvoy Mir">
+    <meta property="og:description" content="Browse recipes by category, difficulty and cooked status.">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="/pages/recipes.html">
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -30,14 +30,14 @@
                                 d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                         </svg>
                     </div>
-                    <span class="logo-name">–¢–≤–æ–π –?–∏—?</span>
+                    <span class="logo-name">Tvoy Mir</span>
                 </a>
 
-                <button class="menu-toggle" id="menu-toggle" aria-label="–?—?–∫—?—?—?—? —?–∏–ª—?—?—?—?" aria-expanded="false" aria-controls="filters-menu">
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle filters" aria-expanded="false" aria-controls="filters-menu">
                     <span></span><span></span><span></span>
                 </button>
 
-                <div class="filters" id="filters-menu" role="region" aria-label="–§–∏–ª—?—?—?—?">
+                <div class="filters" id="filters-menu" role="region" aria-label="Filters">
 
                     <div class="search-wrap">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -45,51 +45,51 @@
                             <circle cx="11" cy="11" r="8" />
                             <line x1="21" y1="21" x2="16.65" y2="16.65" />
                         </svg>
-                        <input type="text" id="search" placeholder="–?–æ–∏—Å–∫ —?–µ—?–µ–ø—?–æ–≤..." aria-label="–?–æ–∏—Å–∫ —?–µ—?–µ–ø—?–æ–≤">
+                        <input type="text" id="search" placeholder="Search recipes..." aria-label="Search recipes">
                     </div>
 
                     <div class="custom-select" data-filter="category">
-                        <button class="select-trigger" type="button" data-select-label="–?–∞—?–µ–≥–æ—?–∏—è" aria-label="–?–∞—?–µ–≥–æ—?–∏—è">
-                            <span class="select-label">–?–∞—?–µ–≥–æ—?–∏—è</span>
+                        <button class="select-trigger" type="button" data-select-label="Category" aria-label="Category">
+                            <span class="select-label">Category</span>
                             <span class="arrow" aria-hidden="true"></span>
                         </button>
                         <div class="select-options" id="recipes-category-options">
-                            <div class="option active" data-value="all">–?—Å–µ</div>
-                            <div class="option" data-value="breakfast">–?–∞–≤—?—?–∞–∫</div>
-                            <div class="option" data-value="lunch">–?–±–µ–¥</div>
-                            <div class="option" data-value="dinner">–£–∂–∏–Ω</div>
-                            <div class="option" data-value="dessert">–?–µ—Å–µ—?—?</div>
-                            <div class="option" data-value="snack">–?–µ—?–µ–∫—?—Å</div>
+                            <div class="option active" data-value="all">All</div>
+                            <div class="option" data-value="breakfast">Breakfast</div>
+                            <div class="option" data-value="lunch">Lunch</div>
+                            <div class="option" data-value="dinner">Dinner</div>
+                            <div class="option" data-value="dessert">Dessert</div>
+                            <div class="option" data-value="snack">Snack</div>
                         </div>
                     </div>
 
                     <div class="custom-select" data-filter="difficulty">
-                        <button class="select-trigger" type="button" data-select-label="–°–ª–æ–∂–Ω–æ—Å—?—?" aria-label="–°–ª–æ–∂–Ω–æ—Å—?—?">
-                            <span class="select-label">–°–ª–æ–∂–Ω–æ—Å—?—?</span>
+                        <button class="select-trigger" type="button" data-select-label="Difficulty" aria-label="Difficulty">
+                            <span class="select-label">Difficulty</span>
                             <span class="arrow" aria-hidden="true"></span>
                         </button>
                         <div class="select-options" id="recipes-difficulty-options">
-                            <div class="option active" data-value="all">–?—?–±–∞—è</div>
-                            <div class="option" data-value="easy">–?–µ–≥–∫–æ</div>
-                            <div class="option" data-value="medium">–°—?–µ–¥–Ω–µ</div>
-                            <div class="option" data-value="hard">–°–ª–æ–∂–Ω–æ</div>
+                            <div class="option active" data-value="all">Any</div>
+                            <div class="option" data-value="easy">Easy</div>
+                            <div class="option" data-value="medium">Medium</div>
+                            <div class="option" data-value="hard">Hard</div>
                         </div>
                     </div>
 
                     <div class="custom-select" data-filter="cooked">
-                        <button class="select-trigger" type="button" data-select-label="–°—?–∞—?—?—Å" aria-label="–°—?–∞—?—?—Å">
-                            <span class="select-label">–°—?–∞—?—?—Å</span>
+                        <button class="select-trigger" type="button" data-select-label="Status" aria-label="Status">
+                            <span class="select-label">Status</span>
                             <span class="arrow" aria-hidden="true"></span>
                         </button>
                         <div class="select-options" id="recipes-cooked-options">
-                            <div class="option active" data-value="all">–?—Å–µ</div>
-                            <div class="option" data-value="tried">–?–æ—?–æ–≤–∏–ª</div>
-                            <div class="option" data-value="nottried">–ù–µ –≥–æ—?–æ–≤–∏–ª</div>
+                            <div class="option active" data-value="all">All</div>
+                            <div class="option" data-value="tried">Tried</div>
+                            <div class="option" data-value="nottried">Not tried</div>
                         </div>
                     </div>
 
-                    <div class="results-count">–ù–∞–π–¥–µ–Ω–æ: <span id="count"></span></div>
-                       <button type="button" class="reset-filters" id="reset-filters">????????</button>
+                    <div class="results-count">Found: <span id="count"></span></div>
+                    <button type="button" class="reset-filters" id="reset-filters">Reset</button>
 
                 </div>
             </div>
@@ -98,18 +98,18 @@
 
     <main class="container page-wrapper">
         <div class="section-head">
-            <h2 class="section-title">–†–µ—?–µ–ø—?—?</h2>
+            <h2 class="section-title">Recipes</h2>
             <span class="section-badge" id="badge-count"></span>
         </div>
 
-                <div class="games-grid" id="games-grid">
+        <div class="games-grid" id="games-grid">
             <!-- Empty state -->
             <div class="empty-state" id="empty-state">
                 <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <circle cx="11" cy="11" r="8" />
                     <line x1="21" y1="21" x2="16.65" y2="16.65" />
                 </svg>
-                <p>ÕË˜Â„Ó ÌÂ Ì‡È‰ÂÌÓ</p>
+                <p>No items found</p>
             </div>
         </div>
 
@@ -119,7 +119,3 @@
 </body>
 
 </html>
-
-
-
-

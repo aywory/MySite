@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>????</title>
-    <meta name="description" content="???????? ??? ? ????????? ?? ??????, ??????????????????, ???? ? ??????? ???????????.">
-    <meta property="og:title" content="???? | ???? ???">
-    <meta property="og:description" content="??????? ??? ? ??????? ???????, ????????? ? ???????? ???????????.">
+    <title>Games</title>
+    <meta name="description" content="Collection of games with filters and play status.">
+    <meta property="og:title" content="Games | Tvoy Mir">
+    <meta property="og:description" content="Track games with mode and status filters.">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="/pages/games.html">
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -23,7 +23,7 @@
         <div class="container">
             <div class="header-inner">
 
-                <!-- ???? -->
+                <!-- Logo -->
                 <a href="../index.html" class="main-logo">
                     <div class="logo-mark">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -31,16 +31,15 @@
                                 d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                         </svg>
                     </div>
-                    <span class="logo-name">???? ???</span>
+                    <span class="logo-name">Tvoy Mir</span>
                 </a>
 
-                <!-- ????????? (?????? ???????) -->
-                <button class="menu-toggle" id="menu-toggle" aria-label="??????? ???????" aria-expanded="false" aria-controls="filters-menu">
+                <!-- Filter menu -->
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle filters" aria-expanded="false" aria-controls="filters-menu">
                     <span></span><span></span><span></span>
                 </button>
 
-                <!-- ??????? -->
-                <div class="filters" id="filters-menu" role="region" aria-label="???????">
+                <div class="filters" id="filters-menu" role="region" aria-label="Filters">
 
                     <div class="search-wrap">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -48,59 +47,59 @@
                             <circle cx="11" cy="11" r="8" />
                             <line x1="21" y1="21" x2="16.65" y2="16.65" />
                         </svg>
-                        <input type="text" id="search" placeholder="????? ???..." aria-label="????? ???">
+                        <input type="text" id="search" placeholder="Search games..." aria-label="Search games">
                     </div>
 
                     <div class="custom-select" data-filter="mode">
-                        <button class="select-trigger" type="button" data-select-label="?????" aria-label="?????">
-                            <span class="select-label">?????</span>
+                        <button class="select-trigger" type="button" data-select-label="Mode" aria-label="Mode">
+                            <span class="select-label">Mode</span>
                             <span class="arrow" aria-hidden="true"></span>
                         </button>
                         <div class="select-options" id="games-mode-options">
-                            <div class="option active" data-value="all">??? ??????</div>
+                            <div class="option active" data-value="all">All</div>
                             <div class="option" data-value="single">Singleplayer</div>
                             <div class="option" data-value="multi">Multiplayer</div>
                         </div>
                     </div>
 
                     <div class="custom-select" data-filter="performance">
-                        <button class="select-trigger" type="button" data-select-label="??????????????????" aria-label="??????????????????">
-                            <span class="select-label">??????????????????</span>
+                        <button class="select-trigger" type="button" data-select-label="Progress" aria-label="Progress">
+                            <span class="select-label">Progress</span>
                             <span class="arrow" aria-hidden="true"></span>
                         </button>
                         <div class="select-options" id="games-performance-options">
-                            <div class="option active" data-value="all">???</div>
-                            <div class="option" data-value="runs">?????</div>
-                            <div class="option" data-value="noruns">?? ?????</div>
+                            <div class="option active" data-value="all">Any</div>
+                            <div class="option" data-value="runs">Played</div>
+                            <div class="option" data-value="noruns">Not played</div>
                         </div>
                     </div>
 
                     <div class="custom-select" data-filter="radmin">
-                        <button class="select-trigger" type="button" data-select-label="????" aria-label="????">
-                            <span class="select-label">????</span>
+                        <button class="select-trigger" type="button" data-select-label="Mode Type" aria-label="Mode Type">
+                            <span class="select-label">Mode Type</span>
                             <span class="arrow" aria-hidden="true"></span>
                         </button>
                         <div class="select-options" id="games-radmin-options">
-                            <div class="option active" data-value="all">???</div>
+                            <div class="option active" data-value="all">Any</div>
                             <div class="option" data-value="radmin">Radmin</div>
                             <div class="option" data-value="noradmin">NoRadmin</div>
                         </div>
                     </div>
 
                     <div class="custom-select" data-filter="status">
-                        <button class="select-trigger" type="button" data-select-label="??????" aria-label="??????">
-                            <span class="select-label">??????</span>
+                        <button class="select-trigger" type="button" data-select-label="Status" aria-label="Status">
+                            <span class="select-label">Status</span>
                             <span class="arrow" aria-hidden="true"></span>
                         </button>
                         <div class="select-options" id="games-status-options">
-                            <div class="option active" data-value="all">???</div>
-                            <div class="option" data-value="done">????????</div>
-                            <div class="option" data-value="undone">?? ????????</div>
+                            <div class="option active" data-value="all">All</div>
+                            <div class="option" data-value="done">Done</div>
+                            <div class="option" data-value="undone">Not done</div>
                         </div>
                     </div>
 
-                    <div class="results-count">???????: <span id="count"></span></div>
-                   <button type="button" class="reset-filters" id="reset-filters">????????</button>
+                    <div class="results-count">Found: <span id="count"></span></div>
+                    <button type="button" class="reset-filters" id="reset-filters">Reset</button>
 
                 </div>
             </div>
@@ -109,18 +108,18 @@
 
     <main class="container page-wrapper">
         <div class="section-head">
-            <h2 class="section-title">????</h2>
+            <h2 class="section-title">Games</h2>
             <span class="section-badge" id="badge-count"></span>
         </div>
 
-                <div class="games-grid" id="games-grid">
+        <div class="games-grid" id="games-grid">
             <!-- Empty state -->
             <div class="empty-state" id="empty-state">
                 <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <circle cx="11" cy="11" r="8" />
                     <line x1="21" y1="21" x2="16.65" y2="16.65" />
                 </svg>
-                <p>?????? ?? ???????</p>
+                <p>No items found</p>
             </div>
         </div>
 
@@ -130,4 +129,3 @@
 </body>
 
 </html>
-
