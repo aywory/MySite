@@ -325,6 +325,31 @@ a {
   font-size: 13px;
 }
 
+.reset-filters {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-2);
+  font: inherit;
+  padding: 9px 14px;
+  border-radius: var(--r);
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.reset-filters:hover,
+.reset-filters:focus-visible {
+  border-color: rgba(138, 79, 255, 0.4);
+  color: var(--text);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.reset-filters:active {
+  transform: scale(0.98);
+}
+
 /* ═══════════════════════════════════════
    MOBILE TOGGLE
 ═══════════════════════════════════════ */
