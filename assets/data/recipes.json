@@ -1,0 +1,110 @@
+[
+    {
+        "id":  "recipes-pancakes-0",
+        "section":  "recipes",
+        "title":  "Панкейки",
+        "description":  "Пышные американские панкейки на кефире — мягкие внутри, золотистые снаружи. Идеальный завтрак за 20 минут.",
+        "status":  "TRIED",
+        "image":  "pancakes.jpg",
+        "imageAlt":  "Панкейки",
+        "tags":  [
+                     {
+                         "key":  "breakfast",
+                         "label":  "Завтрак"
+                     },
+                     {
+                         "key":  "easy",
+                         "label":  "Легко"
+                     }
+                 ],
+        "meta":  {
+                     "runtime":  "20 мин"
+                 },
+        "filterMeta":  {
+                           "category":  "breakfast",
+                           "difficulty":  "easy",
+                           "cooked":  "tried"
+                       }
+    },
+    {
+        "id":  "recipes-pasta-carbonaara-1",
+        "section":  "recipes",
+        "title":  "Паста Карбонара",
+        "description":  "Классическая римская паста с беконом, яйцами и пармезаном. Никаких сливок — только оригинальный рецепт.",
+        "status":  "NOT_TRIED",
+        "image":  "pasta.jpg",
+        "imageAlt":  "Паста Карбонара",
+        "tags":  [
+                     {
+                         "key":  "dinner",
+                         "label":  "Ужин"
+                     },
+                     {
+                         "key":  "medium",
+                         "label":  "Средне"
+                     }
+                 ],
+        "meta":  {
+                     "runtime":  "35 мин"
+                 },
+        "filterMeta":  {
+                           "category":  "dinner",
+                           "difficulty":  "medium",
+                           "cooked":  "nottried"
+                       }
+    },
+    {
+        "id":  "recipes-cheesecake-2",
+        "section":  "recipes",
+        "title":  "Чизкейк Нью-Йорк",
+        "description":  "Нежный сливочный чизкейк на песочной основе из крекеров. Подаётся холодным с ягодным соусом.",
+        "status":  "TRIED",
+        "image":  "cheesecake.jpg",
+        "imageAlt":  "Чизкейк Нью-Йорк",
+        "tags":  [
+                     {
+                         "key":  "dessert",
+                         "label":  "Десерт"
+                     },
+                     {
+                         "key":  "medium",
+                         "label":  "Средне"
+                     }
+                 ],
+        "meta":  {
+                     "runtime":  "1.5 ч"
+                 },
+        "filterMeta":  {
+                           "category":  "dessert",
+                           "difficulty":  "medium",
+                           "cooked":  "tried"
+                       }
+    },
+    {
+        "id":  "recipes-guacamole-3",
+        "section":  "recipes",
+        "title":  "Гуакамоле",
+        "description":  "Классический мексиканский соус из авокадо с лаймом, кинзой и томатами. Готовится за 10 минут.",
+        "status":  "NOT_TRIED",
+        "image":  "guacamole.jpg",
+        "imageAlt":  "Гуакамоле",
+        "tags":  [
+                     {
+                         "key":  "snack",
+                         "label":  "Перекус"
+                     },
+                     {
+                         "key":  "easy",
+                         "label":  "Легко"
+                     }
+                 ],
+        "meta":  {
+                     "runtime":  "10 мин"
+                 },
+        "filterMeta":  {
+                           "category":  "snack",
+                           "difficulty":  "easy",
+                           "cooked":  "nottried"
+                       }
+    }
+]

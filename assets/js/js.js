@@ -1,8 +1,16 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
   const STORAGE_PREFIX = "tvm-status";
-  const DATA_PATH = location.pathname.includes("/pages/")
-    ? "../assets/data/catalog.json"
-    : "assets/data/catalog.json";
+  const SECTION_DATA_PATHS = location.pathname.includes("/pages/")
+    ? {
+      games: "../assets/data/games.json",
+      movies: "../assets/data/movies.json",
+      recipes: "../assets/data/recipes.json",
+    }
+    : {
+      games: "assets/data/games.json",
+      movies: "assets/data/movies.json",
+      recipes: "assets/data/recipes.json",
+    };
   const IMAGE_BASE_PATH = location.pathname.includes("/pages/")
     ? "../assets/images/"
     : "assets/images/";
@@ -170,19 +178,33 @@
    * Загружает данные каталога из единого JSON и запускает первый рендер.
    */
   async function hydrateFromCatalog() {
+    const dataPath = SECTION_DATA_PATHS[sectionKey];
+    if (!dataPath) {
+      const message = `Не настроен путь к данным для раздела: ${sectionKey}`;
+      renderCatalogErrorState(message);
+      console.error("[catalog] Unknown section key:", sectionKey);
+      return;
+    }
+
     try {
-      const response = await fetch(DATA_PATH);
+      const response = await fetch(dataPath);
       if (!response.ok) {
-        throw new Error(`Catalog request failed: ${response.status}`);
+        throw new Error(`Catalog request failed (${response.status})`);
       }
       const payload = await response.json();
-      const sectionItems = Array.isArray(payload?.[sectionKey]) ? payload[sectionKey] : [];
+      const sectionItems = Array.isArray(payload) ? payload : [];
+      if (!Array.isArray(sectionItems)) {
+        throw new Error("Wrong catalog format in data file");
+      }
       catalogItems = sectionItems.map((item, index) => normalizeCatalogItem(item, index));
       hydrateStatusesFromStorage();
       filterEverything();
     } catch (error) {
       hasLoadError = true;
-      renderCatalogErrorState("Не удалось загрузить каталог. Проверьте подключение или файл assets/data/catalog.json.");
+      console.error("[catalog] Failed to load section data:", dataPath, error);
+      renderCatalogErrorState(
+        `Не удалось загрузить каталог. Проверьте подключение или файл ${dataPath}.`
+      );
     }
   }
 

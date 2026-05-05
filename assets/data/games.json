@@ -1,0 +1,278 @@
+[
+    {
+        "id":  "games-brothers-a-tale-of-two-sons-0",
+        "section":  "games",
+        "title":  "Brothers: A Tale of Two Sons",
+        "description":  "Эмоциональное приключение-головоломка, где вы одновременно управляете двумя братьями, помогая им спасти отца.",
+        "status":  "UNDONE",
+        "image":  "Brothers A Tale of Two Sons.jpg",
+        "imageAlt":  "Brothers: A Tale of Two Sons",
+        "tags":  [
+                     {
+                         "key":  "single",
+                         "label":  "Single"
+                     },
+                     {
+                         "key":  "noradmin",
+                         "label":  "NoRadmin"
+                     },
+                     {
+                         "key":  "runs",
+                         "label":  "Тянет"
+                     }
+                 ],
+        "meta":  {
+                     "year":  2013
+                 },
+        "filterMeta":  {
+                           "mode":  "single",
+                           "performance":  "runs",
+                           "radmin":  "noradmin",
+                           "status":  "undone"
+                       }
+    },
+    {
+        "id":  "games-blanc-1",
+        "section":  "games",
+        "title":  "Blanc",
+        "description":  "Художественное приключение волчонка и олененка в заснеженном мире. Полностью нарисовано вручную.",
+        "status":  "DONE",
+        "image":  "Blanc.jpg",
+        "imageAlt":  "Blanc",
+        "tags":  [
+                     {
+                         "key":  "multi",
+                         "label":  "Multi"
+                     },
+                     {
+                         "key":  "single",
+                         "label":  "Single"
+                     },
+                     {
+                         "key":  "radmin",
+                         "label":  "Radmin"
+                     },
+                     {
+                         "key":  "runs",
+                         "label":  "Тянет"
+                     }
+                 ],
+        "meta":  {
+                     "year":  2023
+                 },
+        "filterMeta":  {
+                           "mode":  "multi",
+                           "performance":  "runs",
+                           "radmin":  "radmin",
+                           "status":  "done"
+                       }
+    },
+    {
+        "id":  "games-terraria-2",
+        "section":  "games",
+        "title":  "Terraria",
+        "description":  "Мир — это ваш холст. Копайте, сражайтесь, исследуйте и стройте в огромной пиксельной песочнице.",
+        "status":  "UNDONE",
+        "image":  "Terraria.jpg",
+        "imageAlt":  "Terraria",
+        "tags":  [
+                     {
+                         "key":  "multi",
+                         "label":  "Multi"
+                     },
+                     {
+                         "key":  "single",
+                         "label":  "Single"
+                     },
+                     {
+                         "key":  "radmin",
+                         "label":  "Radmin"
+                     },
+                     {
+                         "key":  "runs",
+                         "label":  "Тянет"
+                     }
+                 ],
+        "meta":  {
+                     "year":  2011
+                 },
+        "filterMeta":  {
+                           "mode":  "multi",
+                           "performance":  "runs",
+                           "radmin":  "radmin",
+                           "status":  "undone"
+                       }
+    },
+    {
+        "id":  "games-it-takes-two-3",
+        "section":  "games",
+        "title":  "It Takes Two",
+        "description":  "Безумное приключение, созданное специально для двоих. Помогите Коди и Мэй преодолеть разногласия.",
+        "status":  "UNDONE",
+        "image":  "It_takes_two.jpg",
+        "imageAlt":  "It Takes Two",
+        "tags":  [
+                     {
+                         "key":  "multi",
+                         "label":  "Multi"
+                     },
+                     {
+                         "key":  "single",
+                         "label":  "Single"
+                     },
+                     {
+                         "key":  "radmin",
+                         "label":  "Radmin"
+                     },
+                     {
+                         "key":  "noruns",
+                         "label":  "Не тянет"
+                     }
+                 ],
+        "meta":  {
+                     "year":  2021
+                 },
+        "filterMeta":  {
+                           "mode":  "multi",
+                           "performance":  "noruns",
+                           "radmin":  "radmin",
+                           "status":  "undone"
+                       }
+    },
+    {
+        "id":  "games-minecraft-4",
+        "section":  "games",
+        "title":  "Minecraft",
+        "description":  "Мир из блоков, где ограничивает только воображение. Стройте, добывайте ресурсы и выживайте.",
+        "status":  "UNDONE",
+        "image":  "Minecraft.jpg",
+        "imageAlt":  "Minecraft",
+        "tags":  [
+                     {
+                         "key":  "multi",
+                         "label":  "Multi"
+                     },
+                     {
+                         "key":  "single",
+                         "label":  "Single"
+                     },
+                     {
+                         "key":  "radmin",
+                         "label":  "Radmin"
+                     },
+                     {
+                         "key":  "runs",
+                         "label":  "Тянет"
+                     }
+                 ],
+        "meta":  {
+                     "year":  2011
+                 },
+        "filterMeta":  {
+                           "mode":  "multi",
+                           "performance":  "runs",
+                           "radmin":  "radmin",
+                           "status":  "undone"
+                       }
+    },
+    {
+        "id":  "games-unravel-two-5",
+        "section":  "games",
+        "title":  "Unravel Two",
+        "description":  "Путешествие двух Ярни, связанных одной нитью. Помогайте друг другу преодолевать препятствия.",
+        "status":  "UNDONE",
+        "image":  "Unravel_two.jpg",
+        "imageAlt":  "Unravel Two",
+        "tags":  [
+                     {
+                         "key":  "multi",
+                         "label":  "Multi"
+                     },
+                     {
+                         "key":  "single",
+                         "label":  "Single"
+                     },
+                     {
+                         "key":  "radmin",
+                         "label":  "Radmin"
+                     },
+                     {
+                         "key":  "noruns",
+                         "label":  "Не тянет"
+                     }
+                 ],
+        "meta":  {
+                     "year":  2018
+                 },
+        "filterMeta":  {
+                           "mode":  "multi",
+                           "performance":  "noruns",
+                           "radmin":  "radmin",
+                           "status":  "undone"
+                       }
+    },
+    {
+        "id":  "games-child-of-light-6",
+        "section":  "games",
+        "title":  "Child of Light",
+        "description":  "Поэтичное приключение юной Авроры в волшебном мире Лемурии. Акварельный стиль и пошаговые бои.",
+        "status":  "UNDONE",
+        "image":  "Child_of_light.jpg",
+        "imageAlt":  "Child of Light",
+        "tags":  [
+                     {
+                         "key":  "single",
+                         "label":  "Single"
+                     },
+                     {
+                         "key":  "noradmin",
+                         "label":  "NoRadmin"
+                     },
+                     {
+                         "key":  "runs",
+                         "label":  "Тянет"
+                     }
+                 ],
+        "meta":  {
+                     "year":  2014
+                 },
+        "filterMeta":  {
+                           "mode":  "single",
+                           "performance":  "runs",
+                           "radmin":  "noradmin",
+                           "status":  "undone"
+                       }
+    },
+    {
+        "id":  "games-cuphead-7",
+        "section":  "games",
+        "title":  "Cuphead",
+        "description":  "Невероятный Boss Rush в стиле классических мультфильмов 1930-х. Хардкорный шедевр с уникальным артом.",
+        "status":  "UNDONE",
+        "image":  "Cuphead.jpg",
+        "imageAlt":  "Cuphead",
+        "tags":  [
+                     {
+                         "key":  "single",
+                         "label":  "Single"
+                     },
+                     {
+                         "key":  "multi",
+                         "label":  "Multi"
+                     },
+                     {
+                         "key":  "noruns",
+                         "label":  "Не тянет"
+                     }
+                 ],
+        "meta":  {
+                     "year":  2017
+                 },
+        "filterMeta":  {
+                           "mode":  "single",
+                           "performance":  "noruns",
+                           "radmin":  "all",
+                           "status":  "undone"
+                       }
+    }
+]

@@ -1,0 +1,58 @@
+[
+    {
+        "id":  "movies-interstellar-0",
+        "section":  "movies",
+        "title":  "Интерстеллар",
+        "description":  "Научно-фантастический шедевр Кристофера Нолана о путешествии сквозь время и пространство.",
+        "status":  "DONE",
+        "image":  "interstellar.jpg",
+        "imageAlt":  "Интерстеллар",
+        "tags":  [
+                     {
+                         "key":  "sci-fi",
+                         "label":  "Фантастика"
+                     },
+                     {
+                         "key":  "4k",
+                         "label":  "4K"
+                     }
+                 ],
+        "meta":  {
+                     "year":  2014,
+                     "rating":  8.6
+                 },
+        "filterMeta":  {
+                           "genre":  "sci-fi",
+                           "quality":  "4k",
+                           "status":  "done"
+                       }
+    },
+    {
+        "id":  "movies-conjuring-1",
+        "section":  "movies",
+        "title":  "Заклятие",
+        "description":  "Один из самых страшных хорроров современности, основанный на реальных расследованиях Уорренов.",
+        "status":  "UNDONE",
+        "image":  "conjuring.jpg",
+        "imageAlt":  "Заклятие",
+        "tags":  [
+                     {
+                         "key":  "horror",
+                         "label":  "Хоррор"
+                     },
+                     {
+                         "key":  "fhd",
+                         "label":  "Full HD"
+                     }
+                 ],
+        "meta":  {
+                     "year":  2013,
+                     "rating":  7.5
+                 },
+        "filterMeta":  {
+                           "genre":  "horror",
+                           "quality":  "fhd",
+                           "status":  "undone"
+                       }
+    }
+]
