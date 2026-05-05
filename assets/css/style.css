@@ -877,15 +877,8 @@ a {
   text-align: center;
 }
 
-.home-wordmark h1 {
-  font-size: clamp(36px, 5vw, 56px);
-  font-weight: 900;
-  letter-spacing: -2px;
-  line-height: 1;
+.hero-title {
   margin-bottom: 12px;
-  background: linear-gradient(135deg, #fff 30%, rgba(255, 255, 255, 0.5));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .home-wordmark p {
