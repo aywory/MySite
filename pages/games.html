@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Игры</title>
+    <meta name="description" content="Подборка игр с фильтрами по режиму, производительности, сети и статусу прохождения.">
+    <meta property="og:title" content="Игры | Твой Мир">
+    <meta property="og:description" content="Каталог игр с быстрым поиском, фильтрами и статусом прохождения.">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="/pages/games.html">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/style-mobile.css" media="(max-width: 1100px)">
     <link
@@ -30,12 +35,12 @@
                 </a>
 
                 <!-- Гамбургер (только мобилка) -->
-                <button class="menu-toggle" id="menu-toggle" aria-label="Открыть фильтры">
+                <button class="menu-toggle" id="menu-toggle" aria-label="Открыть фильтры" aria-expanded="false" aria-controls="filters-menu">
                     <span></span><span></span><span></span>
                 </button>
 
                 <!-- Фильтры -->
-                <div class="filters" id="filters-menu">
+                <div class="filters" id="filters-menu" role="region" aria-label="Фильтры">
 
                     <div class="search-wrap">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -43,12 +48,15 @@
                             <circle cx="11" cy="11" r="8" />
                             <line x1="21" y1="21" x2="16.65" y2="16.65" />
                         </svg>
-                        <input type="text" id="search" placeholder="Поиск игр...">
+                        <input type="text" id="search" placeholder="Поиск игр..." aria-label="Поиск игр">
                     </div>
 
                     <div class="custom-select" data-filter="mode">
-                        <div class="select-trigger">Режим <span class="arrow"></span></div>
-                        <div class="select-options">
+                        <button class="select-trigger" type="button" data-select-label="Режим" aria-label="Режим">
+                            <span class="select-label">Режим</span>
+                            <span class="arrow" aria-hidden="true"></span>
+                        </button>
+                        <div class="select-options" id="games-mode-options">
                             <div class="option active" data-value="all">Все режимы</div>
                             <div class="option" data-value="single">Singleplayer</div>
                             <div class="option" data-value="multi">Multiplayer</div>
@@ -56,8 +64,11 @@
                     </div>
 
                     <div class="custom-select" data-filter="performance">
-                        <div class="select-trigger">Производительность <span class="arrow"></span></div>
-                        <div class="select-options">
+                        <button class="select-trigger" type="button" data-select-label="Производительность" aria-label="Производительность">
+                            <span class="select-label">Производительность</span>
+                            <span class="arrow" aria-hidden="true"></span>
+                        </button>
+                        <div class="select-options" id="games-performance-options">
                             <div class="option active" data-value="all">Все</div>
                             <div class="option" data-value="runs">Тянет</div>
                             <div class="option" data-value="noruns">Не тянет</div>
@@ -65,8 +76,11 @@
                     </div>
 
                     <div class="custom-select" data-filter="radmin">
-                        <div class="select-trigger">Сеть <span class="arrow"></span></div>
-                        <div class="select-options">
+                        <button class="select-trigger" type="button" data-select-label="Сеть" aria-label="Сеть">
+                            <span class="select-label">Сеть</span>
+                            <span class="arrow" aria-hidden="true"></span>
+                        </button>
+                        <div class="select-options" id="games-radmin-options">
                             <div class="option active" data-value="all">Все</div>
                             <div class="option" data-value="radmin">Radmin</div>
                             <div class="option" data-value="noradmin">NoRadmin</div>
@@ -74,15 +88,18 @@
                     </div>
 
                     <div class="custom-select" data-filter="status">
-                        <div class="select-trigger">Статус <span class="arrow"></span></div>
-                        <div class="select-options">
+                        <button class="select-trigger" type="button" data-select-label="Статус" aria-label="Статус">
+                            <span class="select-label">Статус</span>
+                            <span class="arrow" aria-hidden="true"></span>
+                        </button>
+                        <div class="select-options" id="games-status-options">
                             <div class="option active" data-value="all">Все</div>
                             <div class="option" data-value="done">Пройдено</div>
                             <div class="option" data-value="undone">Не пройдено</div>
                         </div>
                     </div>
 
-                    <div class="results-count">Найдено: <span id="count">8</span></div>
+                    <div class="results-count">Найдено: <span id="count"></span></div>
 
                 </div>
             </div>
@@ -92,7 +109,7 @@
     <main class="container page-wrapper">
         <div class="section-head">
             <h2 class="section-title">Игры</h2>
-            <span class="section-badge" id="badge-count">8 игр</span>
+            <span class="section-badge" id="badge-count"></span>
         </div>
 
         <div class="games-grid" id="games-grid">

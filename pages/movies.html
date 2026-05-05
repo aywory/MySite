@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Фильмы</title>
+    <meta name="description" content="Коллекция фильмов с фильтрами по жанру, качеству и статусу просмотра.">
+    <meta property="og:title" content="Фильмы | Твой Мир">
+    <meta property="og:description" content="Поиск и фильтрация фильмов по жанру, качеству и статусу просмотра.">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="/pages/movies.html">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/style-mobile.css" media="(max-width: 1100px)">
     <link
@@ -28,11 +33,11 @@
                     <span class="logo-name">Твой Мир</span>
                 </a>
 
-                <button class="menu-toggle" id="menu-toggle" aria-label="Открыть фильтры">
+                <button class="menu-toggle" id="menu-toggle" aria-label="Открыть фильтры" aria-expanded="false" aria-controls="filters-menu">
                     <span></span><span></span><span></span>
                 </button>
 
-                <div class="filters" id="filters-menu">
+                <div class="filters" id="filters-menu" role="region" aria-label="Фильтры">
 
                     <div class="search-wrap">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -40,12 +45,15 @@
                             <circle cx="11" cy="11" r="8" />
                             <line x1="21" y1="21" x2="16.65" y2="16.65" />
                         </svg>
-                        <input type="text" id="search" placeholder="Поиск фильмов...">
+                        <input type="text" id="search" placeholder="Поиск фильмов..." aria-label="Поиск фильмов">
                     </div>
 
                     <div class="custom-select" data-filter="genre">
-                        <div class="select-trigger">Жанр <span class="arrow"></span></div>
-                        <div class="select-options">
+                        <button class="select-trigger" type="button" data-select-label="Жанр" aria-label="Жанр">
+                            <span class="select-label">Жанр</span>
+                            <span class="arrow" aria-hidden="true"></span>
+                        </button>
+                        <div class="select-options" id="movies-genre-options">
                             <div class="option active" data-value="all">Все жанры</div>
                             <div class="option" data-value="horror">Хоррор</div>
                             <div class="option" data-value="sci-fi">Фантастика</div>
@@ -54,8 +62,11 @@
                     </div>
 
                     <div class="custom-select" data-filter="quality">
-                        <div class="select-trigger">Качество <span class="arrow"></span></div>
-                        <div class="select-options">
+                        <button class="select-trigger" type="button" data-select-label="Качество" aria-label="Качество">
+                            <span class="select-label">Качество</span>
+                            <span class="arrow" aria-hidden="true"></span>
+                        </button>
+                        <div class="select-options" id="movies-quality-options">
                             <div class="option active" data-value="all">Любое</div>
                             <div class="option" data-value="4k">4K Ultra HD</div>
                             <div class="option" data-value="fhd">Full HD</div>
@@ -63,15 +74,18 @@
                     </div>
 
                     <div class="custom-select" data-filter="status">
-                        <div class="select-trigger">Статус <span class="arrow"></span></div>
-                        <div class="select-options">
+                        <button class="select-trigger" type="button" data-select-label="Статус" aria-label="Статус">
+                            <span class="select-label">Статус</span>
+                            <span class="arrow" aria-hidden="true"></span>
+                        </button>
+                        <div class="select-options" id="movies-status-options">
                             <div class="option active" data-value="all">Все</div>
                             <div class="option" data-value="done">Просмотрено</div>
                             <div class="option" data-value="undone">Не просмотрено</div>
                         </div>
                     </div>
 
-                    <div class="results-count">Найдено: <span id="count">2</span></div>
+            <div class="results-count">Найдено: <span id="count"></span></div>
 
                 </div>
             </div>
@@ -81,14 +95,14 @@
     <main class="container page-wrapper">
         <div class="section-head">
             <h2 class="section-title">Фильмы</h2>
-            <span class="section-badge" id="badge-count">2 фильма</span>
+            <span class="section-badge" id="badge-count"></span>
         </div>
 
         <div class="games-grid" id="games-grid">
 
             <div class="game-card" data-tags="sci-fi 4k done">
                 <div class="card-image">
-                    <img src="../assets/images/interstellar.jpg" alt="Интерстеллар" loading="lazy">
+                <img src="../assets/images/interstellar.jpg" alt="Интерстеллар" loading="lazy" onerror="if (!this.dataset.fallbacked) { this.dataset.fallbacked = '1'; this.src='../assets/images/placeholder.svg'; }">
                     <span class="badge-year">2014</span>
                 </div>
                 <div class="card-content">
@@ -104,7 +118,7 @@
 
             <div class="game-card" data-tags="horror fhd undone">
                 <div class="card-image">
-                    <img src="../assets/images/conjuring.jpg" alt="Заклятие" loading="lazy">
+                <img src="../assets/images/conjuring.jpg" alt="Заклятие" loading="lazy" onerror="if (!this.dataset.fallbacked) { this.dataset.fallbacked = '1'; this.src='../assets/images/placeholder.svg'; }">
                     <span class="badge-year">2013</span>
                 </div>
                 <div class="card-content">
